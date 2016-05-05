@@ -6,7 +6,8 @@ int main(int argc, char** argv)
 
 	if(initLibrary())
 	{
-		wborder(stdscr, '|', '|', '-', '-', '+', '+', '+', '+');
+//		wborder(stdscr, '|', '|', '-', '-', '+', '+', '+', '+');
+		wborder(stdscr, '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0');
 		wrefresh(stdscr);
 
 		int height = 10;

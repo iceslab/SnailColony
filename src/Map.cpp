@@ -12,7 +12,7 @@ Map::Map(int height, int width, int xPos, int yPos)
 	this->height = height;
 	this->width = width;
 	mapWindow = newwin(height, width, yPos, xPos);
-	wborder(mapWindow, '|', '|', '-', '-', '+', '+', '+', '+');
+	wborder(mapWindow, '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0');
 	wrefresh(mapWindow);
 }
 
