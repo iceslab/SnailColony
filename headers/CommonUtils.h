@@ -8,13 +8,19 @@
 #ifndef HEADERS_COMMONUTILS_H_
 #define HEADERS_COMMONUTILS_H_
 
-#include <pthread.h>
-#include <ncurses.h>
-#include <iostream>
-#include <unistd.h>
-using namespace std;
+#include "../headers/includes.h"
+#include "../headers/Map.h"
+#include "../headers/StatusBar.h"
 
-bool initLibrary();
-
+class CommonUtils
+{
+public:
+	static bool initLibrary();
+	static bool initWindows(Map &map, StatusBar &statusBar);
+protected:
+private:
+	static bool initColors();
+	static const int statusBarHeight;
+};
 
 #endif /* HEADERS_COMMONUTILS_H_ */

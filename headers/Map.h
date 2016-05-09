@@ -8,20 +8,33 @@
 #ifndef SRC_MAP_H_
 #define SRC_MAP_H_
 
-#include "../headers/CommonUtils.h"
+#include "../headers/includes.h"
+#include "../headers/Snail.h"
+#include "../headers/Tile.h"
 
 class Map {
 public:
-	WINDOW* mapWindow;
-
+	Map();
 	Map(int height, int width, int xPos, int yPos);
 	virtual ~Map();
+
+	int getHeight() const {
+		return height;
+	}
+
+	int getWidth() const {
+		return width;
+	}
 
 protected:
 private:
 	int height;
 	int width;
+	WINDOW* mapWindow;
+	vector<vector<Tile>> tiles;
+	vector<Snail> snails;
 
+	void printTiles();
 };
 
 #endif /* SRC_MAP_H_ */

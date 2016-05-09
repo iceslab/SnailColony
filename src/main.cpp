@@ -1,33 +1,27 @@
+#include "../headers/includes.h"
 #include "../headers/CommonUtils.h"
-#include "../headers/Map.h"
 
 int main(int argc, char** argv)
 {
 
-	if(initLibrary())
+	if(CommonUtils::initLibrary())
 	{
-//		wborder(stdscr, '|', '|', '-', '-', '+', '+', '+', '+');
-		wborder(stdscr, '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0');
-		wrefresh(stdscr);
+		Map map;
+		StatusBar statusBar;
 
-		int height = 10;
-		int width = 10;
-		int lines, columns;
+		if(CommonUtils::initWindows(map, statusBar))
+		{
 
-		getmaxyx(stdscr, lines, columns);
-//		height = lines;
-//		width = columns;
+//			mvprintw(1, 1, "%d, %d", map.getHeight(), map.getWidth());
+//			mvprintw(2, 1, "%d, %d", statusBar.getHeight(), statusBar.getWidth());
+//			wrefresh(stdscr);
+			refresh();
 
-		int startY = (lines - height) / 2;     /* Obliczanie środkowej pozycji */
-		int startX = (columns - width) / 2;
+//			sleep(2);
+			getchar();
 
-		refresh();
+		}
 
-		Map map(height, width, startX, startY);
-
-		refresh();
-		sleep(2);
-//		getchar();
 	}
 	endwin();
 	return 0;
