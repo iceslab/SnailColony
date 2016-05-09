@@ -32,7 +32,7 @@ Map::Map(int height, int width, int xPos, int yPos) : Map()
 		}
 	}
 
-	refresh();
+//	refresh();
 	printTiles();
 //	mvprintw(1, 1, "%d, %d", this->height, this->width);
 }
@@ -46,6 +46,28 @@ Map::~Map()
 	}
 }
 
+int Map::getHeight() const
+{
+	return height;
+}
+
+int Map::getWidth() const
+{
+	return width;
+}
+
+void Map::growMap()
+{
+	for(auto& tilesRow : tiles)
+	{
+		for(auto& tile : tilesRow)
+		{
+			tile.grow();
+		}
+	}
+	printTiles();
+}
+
 void Map::printTiles()
 {
 	unsigned snailsNumber = snails.size();
@@ -57,12 +79,11 @@ void Map::printTiles()
 		{
 			ColorPair color;
 			char value = tiles[row - 1][column - 1].getValue(color);
-			attron(COLOR_PAIR(color));
+			wattron(mapWindow, COLOR_PAIR(1));
 			mvwprintw(mapWindow, row, column, "%c", value);
-			attroff(COLOR_PAIR(color));
+			wattroff(mapWindow, COLOR_PAIR(1));
 		}
 	}
-
 	wrefresh(mapWindow);
 	refresh();
 }

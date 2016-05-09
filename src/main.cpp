@@ -17,6 +17,11 @@ int main(int argc, char** argv)
 //			wrefresh(stdscr);
 			refresh();
 
+			for(unsigned i = 0; i < 2; i++)
+			{
+				map.growMap();
+				sleep(1);
+			}
 //			sleep(2);
 			getchar();
 

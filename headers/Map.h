@@ -18,13 +18,10 @@ public:
 	Map(int height, int width, int xPos, int yPos);
 	virtual ~Map();
 
-	int getHeight() const {
-		return height;
-	}
+	int getHeight() const;
+	int getWidth() const;
 
-	int getWidth() const {
-		return width;
-	}
+	void growMap();
 
 protected:
 private:
