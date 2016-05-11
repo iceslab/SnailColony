@@ -16,6 +16,8 @@ class Map {
 public:
 	Map();
 	Map(int height, int width, int xPos, int yPos);
+	Map(Map&& map);
+	Map& operator= (Map&& map);
 	virtual ~Map();
 
 	int getHeight() const;

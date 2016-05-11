@@ -6,6 +6,7 @@
  */
 
 #include "../headers/Map.h"
+#include <utility>
 
 Map::Map()
 {
@@ -35,6 +36,34 @@ Map::Map(int height, int width, int xPos, int yPos) : Map()
 //	refresh();
 	printTiles();
 //	mvprintw(1, 1, "%d, %d", this->height, this->width);
+}
+
+Map::Map(Map&& map)
+{
+	height = map.height;
+	width = map.width;
+	mapWindow = map.mapWindow;
+	tiles = move(map.tiles);
+	snails = move(map.snails);
+
+	map.height = 0;
+	map.width = 0;
+	map.mapWindow = nullptr;
+}
+
+Map& Map::operator= (Map&& map)
+{
+	height = map.height;
+	width = map.width;
+	mapWindow = map.mapWindow;
+	tiles = move(map.tiles);
+	snails = move(map.snails);
+
+	map.height = 0;
+	map.width = 0;
+	map.mapWindow = nullptr;
+
+	return *this;
 }
 
 Map::~Map()
@@ -70,9 +99,6 @@ void Map::growMap()
 
 void Map::printTiles()
 {
-	unsigned snailsNumber = snails.size();
-	vector<bool> printed(snailsNumber, false);
-
 	for(int row = 1; row < height - 1; row++)
 	{
 		for(int column = 1; column < width - 1; column++ )

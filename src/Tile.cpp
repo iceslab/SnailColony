@@ -30,9 +30,17 @@ void Tile::grow()
 	{
 		++value;
 	}
-	else
+	else if(value > 9)
+	{
+		value = 9;
+	}
+	else if(value < 0)
 	{
 		value = 0;
+	}
+	else
+	{
+		// Nothing to do
 	}
 }
 
@@ -42,9 +50,17 @@ void Tile::shrink()
 	{
 		--value;
 	}
-	else
+	else if (value > 9)
+	{
+		value = 9;
+	}
+	else if (value < 0)
 	{
 		value = 0;
+	}
+	else
+	{
+		// Nothing to do
 	}
 }
 
