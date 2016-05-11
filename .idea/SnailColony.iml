@@ -9,8 +9,10 @@
       <sourceFolder url="file://$MODULE_DIR$/src/SnailColony.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Snail.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/StatusBar.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Grass.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/headers/Snail.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/headers/CommonUtils.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/headers/Grass.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/headers/StatusBar.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/headers/SnailColony.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/headers/includes.h" isTestSource="false" />

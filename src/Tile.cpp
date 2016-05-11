@@ -7,9 +7,12 @@
 
 #include "../headers/Tile.h"
 
+const int Tile::minTileValue = 0;
+const int Tile::maxTileValue = 9;
+
 Tile::Tile(int value)
 {
-	if(value < 10 && value > 0)
+	if(value <= maxTileValue && value > 0)
 	{
 		this->value = value;
 	}
@@ -24,47 +27,53 @@ Tile::~Tile()
 
 }
 
-void Tile::grow()
+unsigned Tile::grow(unsigned amount)
 {
-	if(value < 9 && value >= 0)
+	if(value < maxTileValue)
 	{
-		++value;
+		if(amount > maxTileValue - value)
+		{
+			value = maxTileValue;
+			amount = static_cast<unsigned>(maxTileValue - value);
+		}
+		else
+		{
+			value += amount;
+		}
 	}
-	else if (value < 0)
-	{
-		value = 0;
-	}
-	else if (value > 9)
-	{
-		value = 9;
-	}
+
+	return amount;
 }
 
-void Tile::shrink()
+unsigned Tile::shrink(unsigned amount)
 {
-	if(value <= 9 && value > 0)
+	if(value > minTileValue)
 	{
-		--value;
+		if(amount > minTileValue + value)
+		{
+			value = minTileValue;
+			amount = static_cast<unsigned>(value - minTileValue);
+		}
+		else
+		{
+			value -= amount;
+		}
 	}
-	else if (value < 0)
-	{
-		value = 0;
-	}
-	else if (value > 9)
-	{
-		value = 9;
-	}
+
+	return amount;
 }
 
-char Tile::getValue(ColorPair &color)
+int Tile::getValue() const
 {
-	char retVal = ' ';
+
+}
+
+char Tile::getValueAsChar(ColorPair &color) const
+{
 	color = GREEN;
 	if(value == 0)
 		color = BROWN;
-	retVal = value + '0';
-
-	return retVal;
+	return static_cast<char>(value + '0');
 }
 
 void Tile::setValue(int value)

@@ -9,7 +9,8 @@
 #define SRC_MAP_H_
 
 #include "../headers/includes.h"
-#include "../headers/Tile.h"
+#include "../headers/Grass.h"
+#include "../headers/SnailColony.h"
 
 class Map {
 public:
@@ -29,9 +30,11 @@ private:
 	int height;
 	int width;
 	WINDOW* mapWindow;
-	vector<vector<Tile>> tiles;
+	Grass grass;
+	SnailColony colony;
 
-	void printTiles();
+	void printGrass();
+	void printColony();
 };
 
 #endif /* SRC_MAP_H_ */

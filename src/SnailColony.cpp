@@ -35,3 +35,17 @@ void SnailColony::remove()
     }
 }
 
+const vector<Snail>& SnailColony::getSnails() const
+{
+    return snails;
+}
+
+unsigned SnailColony::getColonySize() const
+{
+    return snails.size();
+}
+
+const Snail& SnailColony::getSnail(unsigned index) const
+{
+    return snails[index];
+}

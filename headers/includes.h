@@ -38,5 +38,10 @@ enum ColorPair
 
 };
 
+enum SnailState
+{
+	DEAD,
+	ALIVE
+};
 
 #endif /* HEADERS_INCLUDES_H_ */

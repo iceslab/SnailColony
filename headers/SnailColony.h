@@ -12,9 +12,14 @@ public:
     SnailColony(unsigned startingSize = 0);
     void add();
     void remove();
+
+    const vector<Snail>& getSnails() const;
+    unsigned getColonySize() const;
+    const Snail& getSnail(unsigned index) const;
 private:
-    vector<Snail> snails;
     static const unsigned maxColonySize;
+    vector<Snail> snails;
+
 };
 
 
