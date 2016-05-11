@@ -30,9 +30,13 @@ void Tile::grow()
 	{
 		++value;
 	}
-	else
+	else if (value < 0)
 	{
 		value = 0;
+	}
+	else if (value > 9)
+	{
+		value = 9;
 	}
 }
 
@@ -42,24 +46,23 @@ void Tile::shrink()
 	{
 		--value;
 	}
-	else
+	else if (value < 0)
 	{
 		value = 0;
+	}
+	else if (value > 9)
+	{
+		value = 9;
 	}
 }
 
 char Tile::getValue(ColorPair &color)
 {
-	char retVal = 'X';
-	if(snails.empty())
-	{
-		color = GREEN;
-		retVal = value + '0';
-	}
-	else
-	{
-		color = snails.back()->getColor();
-	}
+	char retVal = ' ';
+	color = GREEN;
+	if(value == 0)
+		color = BROWN;
+	retVal = value + '0';
 
 	return retVal;
 }
@@ -76,16 +79,3 @@ void Tile::setValue(int value)
 	}
 }
 
-void Tile::addSnail(Snail* snail)
-{
-	snails.push_back(snail);
-}
-
-void Tile::removeSnail(Snail* snail)
-{
-	auto it = find(snails.begin(), snails.end(), snail);
-	if(it != snails.end())
-	{
-		snails.erase(it);
-	}
-}

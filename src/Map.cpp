@@ -37,6 +37,32 @@ Map::Map(int height, int width, int xPos, int yPos) : Map()
 //	mvprintw(1, 1, "%d, %d", this->height, this->width);
 }
 
+Map::Map(Map&& map)
+{
+	height = map.height;
+	width = map.width;
+	mapWindow = map.mapWindow;
+	tiles = move(map.tiles);
+
+	map.height = 0;
+	map.width = 0;
+	map.mapWindow = nullptr;
+}
+
+Map& Map::operator= (Map&& map)
+{
+	height = map.height;
+	width = map.width;
+	mapWindow = map.mapWindow;
+	tiles = move(map.tiles);
+
+	map.height = 0;
+	map.width = 0;
+	map.mapWindow = nullptr;
+
+	return *this;
+}
+
 Map::~Map()
 {
 	if(nullptr != mapWindow)
@@ -62,7 +88,7 @@ void Map::growMap()
 	{
 		for(auto& tile : tilesRow)
 		{
-			tile.grow();
+			tile.shrink();
 		}
 	}
 	printTiles();
@@ -70,18 +96,15 @@ void Map::growMap()
 
 void Map::printTiles()
 {
-	unsigned snailsNumber = snails.size();
-	vector<bool> printed(snailsNumber, false);
-
 	for(int row = 1; row < height - 1; row++)
 	{
 		for(int column = 1; column < width - 1; column++ )
 		{
 			ColorPair color;
 			char value = tiles[row - 1][column - 1].getValue(color);
-			wattron(mapWindow, COLOR_PAIR(1));
+			wattron(mapWindow, COLOR_PAIR(color));
 			mvwprintw(mapWindow, row, column, "%c", value);
-			wattroff(mapWindow, COLOR_PAIR(1));
+			wattroff(mapWindow, COLOR_PAIR(color));
 		}
 	}
 	wrefresh(mapWindow);

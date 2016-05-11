@@ -1,5 +1,6 @@
 #include "../headers/includes.h"
 #include "../headers/CommonUtils.h"
+#include "../headers/SnailColony.h"
 
 int main(int argc, char** argv)
 {
@@ -7,6 +8,7 @@ int main(int argc, char** argv)
 	if(CommonUtils::initLibrary())
 	{
 		Map map;
+		SnailColony colony;
 		StatusBar statusBar;
 
 		if(CommonUtils::initWindows(map, statusBar))
@@ -17,7 +19,7 @@ int main(int argc, char** argv)
 //			wrefresh(stdscr);
 			refresh();
 
-			for(unsigned i = 0; i < 2; i++)
+			for(unsigned i = 0; i < 10; i++)
 			{
 				map.growMap();
 				sleep(1);

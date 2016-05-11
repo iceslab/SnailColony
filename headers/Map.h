@@ -9,13 +9,14 @@
 #define SRC_MAP_H_
 
 #include "../headers/includes.h"
-#include "../headers/Snail.h"
 #include "../headers/Tile.h"
 
 class Map {
 public:
 	Map();
 	Map(int height, int width, int xPos, int yPos);
+	Map(Map&& map);
+	Map& operator= (Map&& map);
 	virtual ~Map();
 
 	int getHeight() const;
@@ -29,7 +30,6 @@ private:
 	int width;
 	WINDOW* mapWindow;
 	vector<vector<Tile>> tiles;
-	vector<Snail> snails;
 
 	void printTiles();
 };

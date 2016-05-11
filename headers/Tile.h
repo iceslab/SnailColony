@@ -9,7 +9,6 @@
 #define HEADERS_TILE_H_
 
 #include "../headers/includes.h"
-#include "../headers/Snail.h"
 
 class Tile {
 public:
@@ -22,12 +21,9 @@ public:
 	char getValue(ColorPair &color);
 	void setValue(int value);
 
-	void addSnail(Snail* snail);
-	void removeSnail(Snail* snail);
 protected:
 private:
 	int value;
-	vector<Snail*> snails;
 };
 
 #endif /* HEADERS_TILE_H_ */

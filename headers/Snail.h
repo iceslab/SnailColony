@@ -9,11 +9,12 @@
 #define HEADERS_SNAIL_H_
 
 #include "../headers/includes.h"
+#include "../headers/Map.h"
 
 class Snail
 {
 public:
-	Snail();
+	Snail(ColorPair color);
 	virtual ~Snail();
 
 	int getPosX() const;
@@ -21,6 +22,8 @@ public:
 
 	int getPosY() const;
 	void setPosY(int posY);
+
+	void setMap(Map& map);
 
 	ColorPair getColor() const;
 	void setColor(ColorPair color);
@@ -30,6 +33,7 @@ private:
 	int posX;
 	int posY;
 	ColorPair color;
+	Map* map;
 
 };
 
