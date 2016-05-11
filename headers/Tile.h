@@ -9,25 +9,24 @@
 #define HEADERS_TILE_H_
 
 #include "../headers/includes.h"
-#include "../headers/Snail.h"
 
 class Tile {
 public:
 	Tile(int value = 0);
 	virtual ~Tile();
 
-	void grow();
-	void shrink();
+	unsigned grow(unsigned amount = 1);
+	unsigned shrink(unsigned amount = 1);
 
-	char getValue(ColorPair &color);
+	int getValue() const;
+	char getValueAsChar(ColorPair &color) const;
 	void setValue(int value);
 
-	void addSnail(Snail* snail);
-	void removeSnail(Snail* snail);
 protected:
 private:
 	int value;
-	vector<Snail*> snails;
+	static const int minTileValue;
+	static const int maxTileValue;
 };
 
 #endif /* HEADERS_TILE_H_ */

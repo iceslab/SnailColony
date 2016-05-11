@@ -9,11 +9,12 @@
 #define HEADERS_SNAIL_H_
 
 #include "../headers/includes.h"
+#include "../headers/Grass.h"
 
 class Snail
 {
 public:
-	Snail();
+	Snail(ColorPair color);
 	virtual ~Snail();
 
 	int getPosX() const;
@@ -22,15 +23,35 @@ public:
 	int getPosY() const;
 	void setPosY(int posY);
 
+	void setGrass(Grass* tiles);
+
 	ColorPair getColor() const;
 	void setColor(ColorPair color);
+
+	void eat();
+	void makeRandomMove();
 
 protected:
 private:
 	int posX;
 	int posY;
 	ColorPair color;
+	SnailState state;
+	Grass* grass;
+	int hunger;
 
+	static const int minHunger;
+	static const int maxHunger;
+
+	unsigned decreaseHunger(unsigned amount = 1);
+	void drawMove(int& deltaX, int& deltaY);
+};
+
+enum SnailMove
+{
+	ONLY_X,
+	ONLY_Y,
+	BOTH_XY
 };
 
 #endif /* HEADERS_SNAIL_H_ */

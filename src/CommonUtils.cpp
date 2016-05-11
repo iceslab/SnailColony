@@ -66,10 +66,14 @@ bool CommonUtils::initColors()
 	if(has_colors() == TRUE)
 	{
 		start_color();
-		init_pair(1, COLOR_BLACK, COLOR_GREEN);
+		init_pair(GREEN, COLOR_BLACK, COLOR_GREEN);
+		init_pair(BROWN, COLOR_BLACK, COLOR_YELLOW);
 		init_pair(RED, COLOR_BLACK, COLOR_RED);
 		init_pair(BLUE, COLOR_BLACK, COLOR_BLUE);
 		init_pair(MAGENTA, COLOR_BLACK, COLOR_MAGENTA);
+		init_pair(CYAN, COLOR_BLACK, COLOR_CYAN);
+		init_pair(BLACK, COLOR_WHITE, COLOR_BLACK);
+		init_pair(WHITE, COLOR_BLACK, COLOR_WHITE);
 		retVal = true;
 	}
 

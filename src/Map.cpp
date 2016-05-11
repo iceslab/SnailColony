@@ -6,7 +6,6 @@
  */
 
 #include "../headers/Map.h"
-#include <utility>
 
 Map::Map()
 {
@@ -20,21 +19,15 @@ Map::Map(int height, int width, int xPos, int yPos) : Map()
 	this->height = height;
 	this->width = width;
 	mapWindow = newwin(height, width, yPos, xPos);
+	grass = Grass(height - 2, width - 2);
+
 	wborder(mapWindow, '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0');
 	wrefresh(mapWindow);
 
-	tiles.resize(this->height - 2);
-	for(auto& tilesRow : tiles)
-	{
-		tilesRow.resize(this->width - 2);
-		for(auto& tile : tilesRow )
-		{
-			tile.setValue(rand() % 10);
-		}
-	}
+
 
 //	refresh();
-	printTiles();
+	printGrass();
 //	mvprintw(1, 1, "%d, %d", this->height, this->width);
 }
 
@@ -43,8 +36,7 @@ Map::Map(Map&& map)
 	height = map.height;
 	width = map.width;
 	mapWindow = map.mapWindow;
-	tiles = move(map.tiles);
-	snails = move(map.snails);
+	grass = move(map.grass);
 
 	map.height = 0;
 	map.width = 0;
@@ -56,8 +48,7 @@ Map& Map::operator= (Map&& map)
 	height = map.height;
 	width = map.width;
 	mapWindow = map.mapWindow;
-	tiles = move(map.tiles);
-	snails = move(map.snails);
+	grass = move(map.grass);
 
 	map.height = 0;
 	map.width = 0;
@@ -87,30 +78,44 @@ int Map::getWidth() const
 
 void Map::growMap()
 {
-	for(auto& tilesRow : tiles)
-	{
-		for(auto& tile : tilesRow)
-		{
-			tile.grow();
-		}
-	}
-	printTiles();
+	grass.growGrass();
+	printGrass();
 }
 
-void Map::printTiles()
+void Map::printGrass()
 {
-	for(int row = 1; row < height - 1; row++)
+	int grassHeight = grass.getHeight();
+	int grassWidth = grass.getWidth();
+	for(int row = 0; row < grassHeight; row++)
 	{
-		for(int column = 1; column < width - 1; column++ )
+		for(int column = 0; column < grassWidth; column++ )
 		{
 			ColorPair color;
-			char value = tiles[row - 1][column - 1].getValue(color);
-			wattron(mapWindow, COLOR_PAIR(1));
-			mvwprintw(mapWindow, row, column, "%c", value);
-			wattroff(mapWindow, COLOR_PAIR(1));
+			char value = grass.getTile(row, column).getValueAsChar(color);
+			wattron(mapWindow, COLOR_PAIR(color));
+			mvwprintw(mapWindow, row + 1, column + 1, "%c", value);
+			wattroff(mapWindow, COLOR_PAIR(color));
 		}
 	}
 	wrefresh(mapWindow);
 	refresh();
 }
 
+void Map::printColony()
+{
+	unsigned snailsNumber = colony.getColonySize();
+
+	for(unsigned i = 0; i < snailsNumber; i++)
+	{
+		ColorPair color = colony.getSnail(i).getColor();
+		wattron(mapWindow, COLOR_PAIR(color));
+		mvwprintw(mapWindow,
+				  colony.getSnail(i).getPosX() + 1,
+				  colony.getSnail(i).getPosY() + 1,
+				  "X");
+		wattroff(mapWindow, COLOR_PAIR(color));
+	}
+
+	wrefresh(mapWindow);
+	refresh();
+}

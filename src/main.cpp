@@ -1,5 +1,6 @@
 #include "../headers/includes.h"
 #include "../headers/CommonUtils.h"
+#include "../headers/SnailColony.h"
 
 int main(int argc, char** argv)
 {
@@ -7,6 +8,7 @@ int main(int argc, char** argv)
 	if(CommonUtils::initLibrary())
 	{
 		Map map;
+		SnailColony colony;
 		StatusBar statusBar;
 
 		if(CommonUtils::initWindows(map, statusBar))

@@ -24,10 +24,24 @@ enum ColorPair
 {
 	DEFAULT = 0,
 	GREEN,
+	BROWN,
+
 	RED,
 	BLUE,
-	MAGENTA
+	MAGENTA,
+	CYAN,
+	BLACK,
+	WHITE,
+
+	FIRST_SNAIL_COLOR = RED,
+	LAST_SNAIL_COLOR = WHITE
+
 };
 
+enum SnailState
+{
+	DEAD,
+	ALIVE
+};
 
 #endif /* HEADERS_INCLUDES_H_ */
