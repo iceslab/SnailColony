@@ -65,7 +65,7 @@ unsigned Tile::shrink(unsigned amount)
 
 int Tile::getValue() const
 {
-
+	return value;
 }
 
 char Tile::getValueAsChar(ColorPair &color) const
