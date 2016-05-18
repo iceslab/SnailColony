@@ -37,7 +37,10 @@ void SnailColony::add()
 {
     if(nullptr != grass && snails.size() < maxColonySize)
     {
-        snails.emplace_back(static_cast<ColorPair>(snails.size() + FIRST_SNAIL_COLOR), grass);
+        snails.emplace_back(static_cast<ColorPair>(snails.size() + FIRST_SNAIL_COLOR),
+                            grass,
+                            rand() % grass->getWidth(),
+                            rand() % grass->getHeight());
     }
 }
 

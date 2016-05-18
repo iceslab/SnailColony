@@ -59,6 +59,10 @@ unsigned Tile::shrink(unsigned amount)
 			value -= amount;
 		}
 	}
+	else
+	{
+		amount = 0;
+	}
 
 	return amount;
 }

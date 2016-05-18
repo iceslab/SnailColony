@@ -26,8 +26,7 @@ public:
 	SnailColony& getColony();
 
 	void growMap();
-
-
+	void reprint();
 
 protected:
 private:

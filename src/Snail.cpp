@@ -10,8 +10,8 @@
 const int Snail::minHunger = 0;
 const int Snail::maxHunger = 10;
 
-Snail::Snail(ColorPair color, Grass* grass) :
-		posX(0), posY(0), color(color), hunger(0), state(ALIVE), grass(grass)
+Snail::Snail(ColorPair color, Grass* grass, int x, int y) :
+		posX(x), posY(y), color(color), hunger(minHunger), state(ALIVE), grass(grass)
 {
 	pthread_create(&snailThread, NULL, Snail::snailThreadFn, this);
 
@@ -67,13 +67,15 @@ void Snail::makeRandomMove()
 {
 	if(state == ALIVE)
 	{
-		if (decreaseHunger() > 0)
+		if (increaseHunger() > 0)
 		{
 			int deltaX = 0;
 			int deltaY = 0;
 			drawMove(deltaX, deltaY);
 			posX += deltaX;
 			posY += deltaY;
+			auto x = posX;
+			auto y = posY;
 			eat();
 		}
 		else
@@ -83,19 +85,23 @@ void Snail::makeRandomMove()
 	}
 }
 
-unsigned Snail::decreaseHunger(unsigned amount)
+unsigned Snail::increaseHunger(unsigned amount)
 {
-	if(hunger > minHunger)
+	if(hunger < maxHunger)
 	{
-		if(amount > minHunger + hunger)
+		if(amount > maxHunger - hunger)
 		{
-			hunger = minHunger;
-			amount = static_cast<unsigned>(hunger - minHunger);
+			hunger = maxHunger;
+			amount = static_cast<unsigned>(maxHunger - hunger);
 		}
 		else
 		{
-			hunger -= amount;
+			hunger += amount;
 		}
+	}
+	else
+	{
+		amount = 0;
 	}
 
 	return amount;
@@ -108,14 +114,16 @@ void Snail::drawMove(int& deltaX, int& deltaY)
 	switch(move)
 	{
 		case ONLY_X:
-			deltaX = 1 * ((-1) * (rand() % 2));
+			deltaX = 1 * pow(-1, (rand() % 2));
+			deltaY = 0;
 			break;
 		case ONLY_Y:
-			deltaY = 1 * ((-1) * (rand() % 2));
+			deltaX = 0;
+			deltaY = 1 * pow(-1, (rand() % 2));
 			break;
 		case BOTH_XY:
-			deltaX = 1 * ((-1) * (rand() % 2));
-			deltaY = 1 * ((-1) * (rand() % 2));
+			deltaX = 1 * pow(-1, (rand() % 2));
+			deltaY = 1 * pow(-1, (rand() % 2));
 			break;
 		default:
 			break;
@@ -134,7 +142,7 @@ void Snail::drawMove(int& deltaX, int& deltaY)
 	}
 	if(posY == 0 && deltaY < 0)
 	{
-		deltaX = 1;
+		deltaY = 1;
 	}
 	if(posY == grass->getWidth() && deltaY > 0)
 	{
@@ -147,5 +155,6 @@ void* Snail::snailThreadFn(void* snail)
 	while(true)
 	{
 		static_cast<Snail*>(snail)->makeRandomMove();
+		usleep(100000);
 	}
 }

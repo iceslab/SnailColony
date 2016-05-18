@@ -89,8 +89,17 @@ SnailColony& Map::getColony()
 void Map::growMap()
 {
 	grass.growGrass();
+
+//	printGrass();
+//	printColony();
+}
+
+void Map::reprint()
+{
 	printGrass();
 	printColony();
+	wrefresh(mapWindow);
+	refresh();
 }
 
 void Map::printGrass()
@@ -108,8 +117,9 @@ void Map::printGrass()
 			wattroff(mapWindow, COLOR_PAIR(color));
 		}
 	}
-	wrefresh(mapWindow);
-	refresh();
+//	refreshMap();
+//	wrefresh(mapWindow);
+//	refresh();
 }
 
 void Map::printColony()
@@ -127,6 +137,7 @@ void Map::printColony()
 		wattroff(mapWindow, COLOR_PAIR(color));
 	}
 
-	wrefresh(mapWindow);
-	refresh();
+//	refreshMap();
+//	wrefresh(mapWindow);
+//	refresh();
 }

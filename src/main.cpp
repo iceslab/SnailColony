@@ -19,12 +19,23 @@ int main(int argc, char** argv)
 //			mvprintw(2, 1, "%d, %d", statusBar.getHeight(), statusBar.getWidth());
 //			wrefresh(stdscr);
 			map.getColony().add();
+			map.getColony().add();
+			map.getColony().add();
+			map.getColony().add();
 			refresh();
 
-			for(unsigned i = 0; i < 10; i++)
+//			for(unsigned i = 0; i < 10000; i++)
+			unsigned i = 0;
+			while(true)
 			{
-				map.growMap();
-				sleep(1);
+				++i;
+				if(i == 10)
+				{
+					map.growMap();
+					i = 0;
+				}
+				usleep(100000);
+				map.reprint();
 			}
 //			sleep(2);
 //			getchar();
