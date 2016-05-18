@@ -29,7 +29,7 @@ public:
 	void setColor(ColorPair color);
 
 	void eat();
-	void makeRandomMove();
+	bool makeRandomMove();
 
 protected:
 private:

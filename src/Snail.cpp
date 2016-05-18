@@ -63,8 +63,9 @@ void Snail::eat()
 	hunger -= grass->getTile(posX, posY).shrink(hunger);
 }
 
-void Snail::makeRandomMove()
+bool Snail::makeRandomMove()
 {
+	bool retVal = false;
 	if(state == ALIVE)
 	{
 		if (increaseHunger() > 0)
@@ -74,15 +75,15 @@ void Snail::makeRandomMove()
 			drawMove(deltaX, deltaY);
 			posX += deltaX;
 			posY += deltaY;
-			auto x = posX;
-			auto y = posY;
 			eat();
+			retVal = true;
 		}
 		else
 		{
 			state = DEAD;
 		}
 	}
+	return retVal;
 }
 
 unsigned Snail::increaseHunger(unsigned amount)
@@ -154,7 +155,8 @@ void* Snail::snailThreadFn(void* snail)
 {
 	while(true)
 	{
-		static_cast<Snail*>(snail)->makeRandomMove();
+		if(!static_cast<Snail*>(snail)->makeRandomMove())
+			break;
 		usleep(100000);
 	}
 }
