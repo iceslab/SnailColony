@@ -2,14 +2,15 @@
 <module type="CPP_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/Synchronize.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/SnailColony.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Map.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/CommonUtils.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Tile.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/SnailColony.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Grass.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Snail.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/StatusBar.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/Grass.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/headers/Snail.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/headers/CommonUtils.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/headers/Grass.h" isTestSource="false" />
@@ -17,6 +18,7 @@
       <sourceFolder url="file://$MODULE_DIR$/headers/SnailColony.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/headers/includes.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/headers/Map.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/headers/Synchronize.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/headers/Tile.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
     </content>
@@ -24,15 +26,13 @@
     <orderEntry type="module-library">
       <library name="Header Search Paths">
         <CLASSES>
-          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
-          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include" />
           <root url="file:///usr/include" />
+          <root url="file:///usr/lib64/clang/3.7.0/include" />
           <root url="file:///usr/local/include" />
         </CLASSES>
         <SOURCES>
-          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
-          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include" />
           <root url="file:///usr/include" />
+          <root url="file:///usr/lib64/clang/3.7.0/include" />
           <root url="file:///usr/local/include" />
         </SOURCES>
       </library>

@@ -1,673 +1,202 @@
-==10493== Memcheck, a memory error detector
-==10493== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==10493== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==10493== Command: ./SnailColony
-==10493== 
-[?1049h[1;77r(B[m[4l[?7h[39;49m[39;49m[37m[40m[H[2J(0[0m[39;49m[37m[40mlqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqk(B[39;49m[37m[40m[2;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[3;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[4;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[5;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[6;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[7;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[8;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[9;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[10;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[11;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[12;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[13;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[14;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[15;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[16;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[17;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[18;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[19;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[20;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[21;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[22;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[23;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[24;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[25;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[26;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[27;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[28;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[29;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[30;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[31;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[32;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[33;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[34;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[35;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[36;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[37;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[38;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[39;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[40;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[41;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[42;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[43;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[44;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[45;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[46;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[47;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[48;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[49;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[50;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[51;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[52;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[53;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[54;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[55;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[56;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[57;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[58;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[59;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[60;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[61;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[62;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[63;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[64;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[65;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[66;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[67;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[68;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[69;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[70;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[71;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[72;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[73;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[74;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[75;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[76;1H(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[116G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[77;1H(0[0m[39;49m[37m[40mmqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq[?7lj[?7h(B[39;49m[37m[40m[H(0[0m[39;49m[37m[40m(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mlqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqk(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mmqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj(B[39;49m[37m[40m[H
-[C(0[0m[39;49m[37m[40m(B[39;49m[37m[40m[H[67;2H(0[0m[39;49m[37m[40mlqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqk(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m[115G(0[0m[39;49m[37m[40mx(B[39;49m[37m[40m
-[C(0[0m[39;49m[37m[40mmqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj(B[39;49m[37m[40m[67;2H(0[0m[39;49m[37m[40m(B[39;49m[37m[40m[H==10493== Thread 3:
-==10493== Invalid read of size 4
-==10493==    at 0x409ABF: Snail::makeRandomMove() (Snail.cpp:69)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493==  Address 0x6395554 is 68 bytes inside a block of size 96 free'd
-==10493==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40966D: __gnu_cxx::new_allocator<Snail>::deallocate(Snail*, unsigned long) (new_allocator.h:110)
-==10493==    by 0x4095C5: std::allocator_traits<std::allocator<Snail> >::deallocate(std::allocator<Snail>&, Snail*, unsigned long) (alloc_traits.h:517)
-==10493==    by 0x4094F3: std::_Vector_base<Snail, std::allocator<Snail> >::_M_deallocate(Snail*, unsigned long) (stl_vector.h:178)
-==10493==    by 0x40AAFA: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:438)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088FD: main (main.cpp:23)
-==10493==  Block was alloc'd at
-==10493==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40B282: __gnu_cxx::new_allocator<Snail>::allocate(unsigned long, void const*) (new_allocator.h:104)
-==10493==    by 0x40B13E: std::allocator_traits<std::allocator<Snail> >::allocate(std::allocator<Snail>&, unsigned long) (alloc_traits.h:491)
-==10493==    by 0x40AF1F: std::_Vector_base<Snail, std::allocator<Snail> >::_M_allocate(unsigned long) (stl_vector.h:170)
-==10493==    by 0x40A9C9: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:412)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088E9: main (main.cpp:22)
-==10493== 
-==10493== Invalid read of size 4
-==10493==    at 0x409B8B: Snail::increaseHunger(unsigned int) (Snail.cpp:93)
-==10493==    by 0x409ADB: Snail::makeRandomMove() (Snail.cpp:71)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493==  Address 0x6395560 is 80 bytes inside a block of size 96 free'd
-==10493==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40966D: __gnu_cxx::new_allocator<Snail>::deallocate(Snail*, unsigned long) (new_allocator.h:110)
-==10493==    by 0x4095C5: std::allocator_traits<std::allocator<Snail> >::deallocate(std::allocator<Snail>&, Snail*, unsigned long) (alloc_traits.h:517)
-==10493==    by 0x4094F3: std::_Vector_base<Snail, std::allocator<Snail> >::_M_deallocate(Snail*, unsigned long) (stl_vector.h:178)
-==10493==    by 0x40AAFA: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:438)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088FD: main (main.cpp:23)
-==10493==  Block was alloc'd at
-==10493==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40B282: __gnu_cxx::new_allocator<Snail>::allocate(unsigned long, void const*) (new_allocator.h:104)
-==10493==    by 0x40B13E: std::allocator_traits<std::allocator<Snail> >::allocate(std::allocator<Snail>&, unsigned long) (alloc_traits.h:491)
-==10493==    by 0x40AF1F: std::_Vector_base<Snail, std::allocator<Snail> >::_M_allocate(unsigned long) (stl_vector.h:170)
-==10493==    by 0x40A9C9: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:412)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088E9: main (main.cpp:22)
-==10493== 
-==10493== Invalid read of size 4
-==10493==    at 0x409B97: Snail::increaseHunger(unsigned int) (Snail.cpp:95)
-==10493==    by 0x409ADB: Snail::makeRandomMove() (Snail.cpp:71)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493==  Address 0x6395560 is 80 bytes inside a block of size 96 free'd
-==10493==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40966D: __gnu_cxx::new_allocator<Snail>::deallocate(Snail*, unsigned long) (new_allocator.h:110)
-==10493==    by 0x4095C5: std::allocator_traits<std::allocator<Snail> >::deallocate(std::allocator<Snail>&, Snail*, unsigned long) (alloc_traits.h:517)
-==10493==    by 0x4094F3: std::_Vector_base<Snail, std::allocator<Snail> >::_M_deallocate(Snail*, unsigned long) (stl_vector.h:178)
-==10493==    by 0x40AAFA: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:438)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088FD: main (main.cpp:23)
-==10493==  Block was alloc'd at
-==10493==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40B282: __gnu_cxx::new_allocator<Snail>::allocate(unsigned long, void const*) (new_allocator.h:104)
-==10493==    by 0x40B13E: std::allocator_traits<std::allocator<Snail> >::allocate(std::allocator<Snail>&, unsigned long) (alloc_traits.h:491)
-==10493==    by 0x40AF1F: std::_Vector_base<Snail, std::allocator<Snail> >::_M_allocate(unsigned long) (stl_vector.h:170)
-==10493==    by 0x40A9C9: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:412)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088E9: main (main.cpp:22)
-==10493== 
-==10493== Invalid read of size 4
-==10493==    at 0x409BCC: Snail::increaseHunger(unsigned int) (Snail.cpp:102)
-==10493==    by 0x409ADB: Snail::makeRandomMove() (Snail.cpp:71)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493==  Address 0x6395560 is 80 bytes inside a block of size 96 free'd
-==10493==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40966D: __gnu_cxx::new_allocator<Snail>::deallocate(Snail*, unsigned long) (new_allocator.h:110)
-==10493==    by 0x4095C5: std::allocator_traits<std::allocator<Snail> >::deallocate(std::allocator<Snail>&, Snail*, unsigned long) (alloc_traits.h:517)
-==10493==    by 0x4094F3: std::_Vector_base<Snail, std::allocator<Snail> >::_M_deallocate(Snail*, unsigned long) (stl_vector.h:178)
-==10493==    by 0x40AAFA: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:438)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088FD: main (main.cpp:23)
-==10493==  Block was alloc'd at
-==10493==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40B282: __gnu_cxx::new_allocator<Snail>::allocate(unsigned long, void const*) (new_allocator.h:104)
-==10493==    by 0x40B13E: std::allocator_traits<std::allocator<Snail> >::allocate(std::allocator<Snail>&, unsigned long) (alloc_traits.h:491)
-==10493==    by 0x40AF1F: std::_Vector_base<Snail, std::allocator<Snail> >::_M_allocate(unsigned long) (stl_vector.h:170)
-==10493==    by 0x40A9C9: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:412)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088E9: main (main.cpp:22)
-==10493== 
-==10493== Invalid write of size 4
-==10493==    at 0x409BDC: Snail::increaseHunger(unsigned int) (Snail.cpp:102)
-==10493==    by 0x409ADB: Snail::makeRandomMove() (Snail.cpp:71)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493==  Address 0x6395560 is 80 bytes inside a block of size 96 free'd
-==10493==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40966D: __gnu_cxx::new_allocator<Snail>::deallocate(Snail*, unsigned long) (new_allocator.h:110)
-==10493==    by 0x4095C5: std::allocator_traits<std::allocator<Snail> >::deallocate(std::allocator<Snail>&, Snail*, unsigned long) (alloc_traits.h:517)
-==10493==    by 0x4094F3: std::_Vector_base<Snail, std::allocator<Snail> >::_M_deallocate(Snail*, unsigned long) (stl_vector.h:178)
-==10493==    by 0x40AAFA: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:438)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088FD: main (main.cpp:23)
-==10493==  Block was alloc'd at
-==10493==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40B282: __gnu_cxx::new_allocator<Snail>::allocate(unsigned long, void const*) (new_allocator.h:104)
-==10493==    by 0x40B13E: std::allocator_traits<std::allocator<Snail> >::allocate(std::allocator<Snail>&, unsigned long) (alloc_traits.h:491)
-==10493==    by 0x40AF1F: std::_Vector_base<Snail, std::allocator<Snail> >::_M_allocate(unsigned long) (stl_vector.h:170)
-==10493==    by 0x40A9C9: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:412)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088E9: main (main.cpp:22)
-==10493== 
-==10493== Invalid read of size 8
-==10493==    at 0x409D1B: Snail::drawMove(int&, int&) (Snail.cpp:135)
-==10493==    by 0x409B09: Snail::makeRandomMove() (Snail.cpp:75)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493==  Address 0x6395558 is 72 bytes inside a block of size 96 free'd
-==10493==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40966D: __gnu_cxx::new_allocator<Snail>::deallocate(Snail*, unsigned long) (new_allocator.h:110)
-==10493==    by 0x4095C5: std::allocator_traits<std::allocator<Snail> >::deallocate(std::allocator<Snail>&, Snail*, unsigned long) (alloc_traits.h:517)
-==10493==    by 0x4094F3: std::_Vector_base<Snail, std::allocator<Snail> >::_M_deallocate(Snail*, unsigned long) (stl_vector.h:178)
-==10493==    by 0x40AAFA: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:438)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088FD: main (main.cpp:23)
-==10493==  Block was alloc'd at
-==10493==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40B282: __gnu_cxx::new_allocator<Snail>::allocate(unsigned long, void const*) (new_allocator.h:104)
-==10493==    by 0x40B13E: std::allocator_traits<std::allocator<Snail> >::allocate(std::allocator<Snail>&, unsigned long) (alloc_traits.h:491)
-==10493==    by 0x40AF1F: std::_Vector_base<Snail, std::allocator<Snail> >::_M_allocate(unsigned long) (stl_vector.h:170)
-==10493==    by 0x40A9C9: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:412)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088E9: main (main.cpp:22)
-==10493== 
-==10493== Invalid read of size 8
-==10493==    at 0x409D2E: Snail::drawMove(int&, int&) (Snail.cpp:136)
-==10493==    by 0x409B09: Snail::makeRandomMove() (Snail.cpp:75)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493==  Address 0x6395558 is 72 bytes inside a block of size 96 free'd
-==10493==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40966D: __gnu_cxx::new_allocator<Snail>::deallocate(Snail*, unsigned long) (new_allocator.h:110)
-==10493==    by 0x4095C5: std::allocator_traits<std::allocator<Snail> >::deallocate(std::allocator<Snail>&, Snail*, unsigned long) (alloc_traits.h:517)
-==10493==    by 0x4094F3: std::_Vector_base<Snail, std::allocator<Snail> >::_M_deallocate(Snail*, unsigned long) (stl_vector.h:178)
-==10493==    by 0x40AAFA: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:438)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088FD: main (main.cpp:23)
-==10493==  Block was alloc'd at
-==10493==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40B282: __gnu_cxx::new_allocator<Snail>::allocate(unsigned long, void const*) (new_allocator.h:104)
-==10493==    by 0x40B13E: std::allocator_traits<std::allocator<Snail> >::allocate(std::allocator<Snail>&, unsigned long) (alloc_traits.h:491)
-==10493==    by 0x40AF1F: std::_Vector_base<Snail, std::allocator<Snail> >::_M_allocate(unsigned long) (stl_vector.h:170)
-==10493==    by 0x40A9C9: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:412)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088E9: main (main.cpp:22)
-==10493== 
-==10493== Invalid read of size 4
-==10493==    at 0x409D41: Snail::drawMove(int&, int&) (Snail.cpp:138)
-==10493==    by 0x409B09: Snail::makeRandomMove() (Snail.cpp:75)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493==  Address 0x6395548 is 56 bytes inside a block of size 96 free'd
-==10493==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40966D: __gnu_cxx::new_allocator<Snail>::deallocate(Snail*, unsigned long) (new_allocator.h:110)
-==10493==    by 0x4095C5: std::allocator_traits<std::allocator<Snail> >::deallocate(std::allocator<Snail>&, Snail*, unsigned long) (alloc_traits.h:517)
-==10493==    by 0x4094F3: std::_Vector_base<Snail, std::allocator<Snail> >::_M_deallocate(Snail*, unsigned long) (stl_vector.h:178)
-==10493==    by 0x40AAFA: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:438)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088FD: main (main.cpp:23)
-==10493==  Block was alloc'd at
-==10493==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40B282: __gnu_cxx::new_allocator<Snail>::allocate(unsigned long, void const*) (new_allocator.h:104)
-==10493==    by 0x40B13E: std::allocator_traits<std::allocator<Snail> >::allocate(std::allocator<Snail>&, unsigned long) (alloc_traits.h:491)
-==10493==    by 0x40AF1F: std::_Vector_base<Snail, std::allocator<Snail> >::_M_allocate(unsigned long) (stl_vector.h:170)
-==10493==    by 0x40A9C9: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:412)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088E9: main (main.cpp:22)
-==10493== 
-==10493== Invalid read of size 4
-==10493==    at 0x409D60: Snail::drawMove(int&, int&) (Snail.cpp:142)
-==10493==    by 0x409B09: Snail::makeRandomMove() (Snail.cpp:75)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493==  Address 0x6395548 is 56 bytes inside a block of size 96 free'd
-==10493==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40966D: __gnu_cxx::new_allocator<Snail>::deallocate(Snail*, unsigned long) (new_allocator.h:110)
-==10493==    by 0x4095C5: std::allocator_traits<std::allocator<Snail> >::deallocate(std::allocator<Snail>&, Snail*, unsigned long) (alloc_traits.h:517)
-==10493==    by 0x4094F3: std::_Vector_base<Snail, std::allocator<Snail> >::_M_deallocate(Snail*, unsigned long) (stl_vector.h:178)
-==10493==    by 0x40AAFA: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:438)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088FD: main (main.cpp:23)
-==10493==  Block was alloc'd at
-==10493==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40B282: __gnu_cxx::new_allocator<Snail>::allocate(unsigned long, void const*) (new_allocator.h:104)
-==10493==    by 0x40B13E: std::allocator_traits<std::allocator<Snail> >::allocate(std::allocator<Snail>&, unsigned long) (alloc_traits.h:491)
-==10493==    by 0x40AF1F: std::_Vector_base<Snail, std::allocator<Snail> >::_M_allocate(unsigned long) (stl_vector.h:170)
-==10493==    by 0x40A9C9: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:412)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088E9: main (main.cpp:22)
-==10493== 
-==10493== Invalid read of size 8
-==10493==    at 0x409D67: Snail::drawMove(int&, int&) (Snail.cpp:142)
-==10493==    by 0x409B09: Snail::makeRandomMove() (Snail.cpp:75)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493==  Address 0x6395558 is 72 bytes inside a block of size 96 free'd
-==10493==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40966D: __gnu_cxx::new_allocator<Snail>::deallocate(Snail*, unsigned long) (new_allocator.h:110)
-==10493==    by 0x4095C5: std::allocator_traits<std::allocator<Snail> >::deallocate(std::allocator<Snail>&, Snail*, unsigned long) (alloc_traits.h:517)
-==10493==    by 0x4094F3: std::_Vector_base<Snail, std::allocator<Snail> >::_M_deallocate(Snail*, unsigned long) (stl_vector.h:178)
-==10493==    by 0x40AAFA: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:438)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088FD: main (main.cpp:23)
-==10493==  Block was alloc'd at
-==10493==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40B282: __gnu_cxx::new_allocator<Snail>::allocate(unsigned long, void const*) (new_allocator.h:104)
-==10493==    by 0x40B13E: std::allocator_traits<std::allocator<Snail> >::allocate(std::allocator<Snail>&, unsigned long) (alloc_traits.h:491)
-==10493==    by 0x40AF1F: std::_Vector_base<Snail, std::allocator<Snail> >::_M_allocate(unsigned long) (stl_vector.h:170)
-==10493==    by 0x40A9C9: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:412)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088E9: main (main.cpp:22)
-==10493== 
-==10493== Invalid read of size 4
-==10493==    at 0x409D9F: Snail::drawMove(int&, int&) (Snail.cpp:146)
-==10493==    by 0x409B09: Snail::makeRandomMove() (Snail.cpp:75)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493==  Address 0x639554c is 60 bytes inside a block of size 96 free'd
-==10493==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40966D: __gnu_cxx::new_allocator<Snail>::deallocate(Snail*, unsigned long) (new_allocator.h:110)
-==10493==    by 0x4095C5: std::allocator_traits<std::allocator<Snail> >::deallocate(std::allocator<Snail>&, Snail*, unsigned long) (alloc_traits.h:517)
-==10493==    by 0x4094F3: std::_Vector_base<Snail, std::allocator<Snail> >::_M_deallocate(Snail*, unsigned long) (stl_vector.h:178)
-==10493==    by 0x40AAFA: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:438)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088FD: main (main.cpp:23)
-==10493==  Block was alloc'd at
-==10493==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40B282: __gnu_cxx::new_allocator<Snail>::allocate(unsigned long, void const*) (new_allocator.h:104)
-==10493==    by 0x40B13E: std::allocator_traits<std::allocator<Snail> >::allocate(std::allocator<Snail>&, unsigned long) (alloc_traits.h:491)
-==10493==    by 0x40AF1F: std::_Vector_base<Snail, std::allocator<Snail> >::_M_allocate(unsigned long) (stl_vector.h:170)
-==10493==    by 0x40A9C9: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:412)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088E9: main (main.cpp:22)
-==10493== 
-==10493== Invalid read of size 4
-==10493==    at 0x409DBE: Snail::drawMove(int&, int&) (Snail.cpp:150)
-==10493==    by 0x409B09: Snail::makeRandomMove() (Snail.cpp:75)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493==  Address 0x639554c is 60 bytes inside a block of size 96 free'd
-==10493==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40966D: __gnu_cxx::new_allocator<Snail>::deallocate(Snail*, unsigned long) (new_allocator.h:110)
-==10493==    by 0x4095C5: std::allocator_traits<std::allocator<Snail> >::deallocate(std::allocator<Snail>&, Snail*, unsigned long) (alloc_traits.h:517)
-==10493==    by 0x4094F3: std::_Vector_base<Snail, std::allocator<Snail> >::_M_deallocate(Snail*, unsigned long) (stl_vector.h:178)
-==10493==    by 0x40AAFA: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:438)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088FD: main (main.cpp:23)
-==10493==  Block was alloc'd at
-==10493==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40B282: __gnu_cxx::new_allocator<Snail>::allocate(unsigned long, void const*) (new_allocator.h:104)
-==10493==    by 0x40B13E: std::allocator_traits<std::allocator<Snail> >::allocate(std::allocator<Snail>&, unsigned long) (alloc_traits.h:491)
-==10493==    by 0x40AF1F: std::_Vector_base<Snail, std::allocator<Snail> >::_M_allocate(unsigned long) (stl_vector.h:170)
-==10493==    by 0x40A9C9: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:412)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088E9: main (main.cpp:22)
-==10493== 
-==10493== Invalid read of size 8
-==10493==    at 0x409DC5: Snail::drawMove(int&, int&) (Snail.cpp:150)
-==10493==    by 0x409B09: Snail::makeRandomMove() (Snail.cpp:75)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493==  Address 0x6395558 is 72 bytes inside a block of size 96 free'd
-==10493==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40966D: __gnu_cxx::new_allocator<Snail>::deallocate(Snail*, unsigned long) (new_allocator.h:110)
-==10493==    by 0x4095C5: std::allocator_traits<std::allocator<Snail> >::deallocate(std::allocator<Snail>&, Snail*, unsigned long) (alloc_traits.h:517)
-==10493==    by 0x4094F3: std::_Vector_base<Snail, std::allocator<Snail> >::_M_deallocate(Snail*, unsigned long) (stl_vector.h:178)
-==10493==    by 0x40AAFA: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:438)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088FD: main (main.cpp:23)
-==10493==  Block was alloc'd at
-==10493==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40B282: __gnu_cxx::new_allocator<Snail>::allocate(unsigned long, void const*) (new_allocator.h:104)
-==10493==    by 0x40B13E: std::allocator_traits<std::allocator<Snail> >::allocate(std::allocator<Snail>&, unsigned long) (alloc_traits.h:491)
-==10493==    by 0x40AF1F: std::_Vector_base<Snail, std::allocator<Snail> >::_M_allocate(unsigned long) (stl_vector.h:170)
-==10493==    by 0x40A9C9: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:412)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088E9: main (main.cpp:22)
-==10493== 
-==10493== Invalid read of size 4
-==10493==    at 0x409B0E: Snail::makeRandomMove() (Snail.cpp:76)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493==  Address 0x6395548 is 56 bytes inside a block of size 96 free'd
-==10493==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40966D: __gnu_cxx::new_allocator<Snail>::deallocate(Snail*, unsigned long) (new_allocator.h:110)
-==10493==    by 0x4095C5: std::allocator_traits<std::allocator<Snail> >::deallocate(std::allocator<Snail>&, Snail*, unsigned long) (alloc_traits.h:517)
-==10493==    by 0x4094F3: std::_Vector_base<Snail, std::allocator<Snail> >::_M_deallocate(Snail*, unsigned long) (stl_vector.h:178)
-==10493==    by 0x40AAFA: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:438)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088FD: main (main.cpp:23)
-==10493==  Block was alloc'd at
-==10493==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40B282: __gnu_cxx::new_allocator<Snail>::allocate(unsigned long, void const*) (new_allocator.h:104)
-==10493==    by 0x40B13E: std::allocator_traits<std::allocator<Snail> >::allocate(std::allocator<Snail>&, unsigned long) (alloc_traits.h:491)
-==10493==    by 0x40AF1F: std::_Vector_base<Snail, std::allocator<Snail> >::_M_allocate(unsigned long) (stl_vector.h:170)
-==10493==    by 0x40A9C9: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:412)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088E9: main (main.cpp:22)
-==10493== 
-==10493== Invalid write of size 4
-==10493==    at 0x409B1A: Snail::makeRandomMove() (Snail.cpp:76)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493==  Address 0x6395548 is 56 bytes inside a block of size 96 free'd
-==10493==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40966D: __gnu_cxx::new_allocator<Snail>::deallocate(Snail*, unsigned long) (new_allocator.h:110)
-==10493==    by 0x4095C5: std::allocator_traits<std::allocator<Snail> >::deallocate(std::allocator<Snail>&, Snail*, unsigned long) (alloc_traits.h:517)
-==10493==    by 0x4094F3: std::_Vector_base<Snail, std::allocator<Snail> >::_M_deallocate(Snail*, unsigned long) (stl_vector.h:178)
-==10493==    by 0x40AAFA: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:438)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088FD: main (main.cpp:23)
-==10493==  Block was alloc'd at
-==10493==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40B282: __gnu_cxx::new_allocator<Snail>::allocate(unsigned long, void const*) (new_allocator.h:104)
-==10493==    by 0x40B13E: std::allocator_traits<std::allocator<Snail> >::allocate(std::allocator<Snail>&, unsigned long) (alloc_traits.h:491)
-==10493==    by 0x40AF1F: std::_Vector_base<Snail, std::allocator<Snail> >::_M_allocate(unsigned long) (stl_vector.h:170)
-==10493==    by 0x40A9C9: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:412)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088E9: main (main.cpp:22)
-==10493== 
-==10493== Invalid read of size 4
-==10493==    at 0x409B21: Snail::makeRandomMove() (Snail.cpp:77)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493==  Address 0x639554c is 60 bytes inside a block of size 96 free'd
-==10493==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40966D: __gnu_cxx::new_allocator<Snail>::deallocate(Snail*, unsigned long) (new_allocator.h:110)
-==10493==    by 0x4095C5: std::allocator_traits<std::allocator<Snail> >::deallocate(std::allocator<Snail>&, Snail*, unsigned long) (alloc_traits.h:517)
-==10493==    by 0x4094F3: std::_Vector_base<Snail, std::allocator<Snail> >::_M_deallocate(Snail*, unsigned long) (stl_vector.h:178)
-==10493==    by 0x40AAFA: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:438)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088FD: main (main.cpp:23)
-==10493==  Block was alloc'd at
-==10493==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40B282: __gnu_cxx::new_allocator<Snail>::allocate(unsigned long, void const*) (new_allocator.h:104)
-==10493==    by 0x40B13E: std::allocator_traits<std::allocator<Snail> >::allocate(std::allocator<Snail>&, unsigned long) (alloc_traits.h:491)
-==10493==    by 0x40AF1F: std::_Vector_base<Snail, std::allocator<Snail> >::_M_allocate(unsigned long) (stl_vector.h:170)
-==10493==    by 0x40A9C9: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:412)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088E9: main (main.cpp:22)
-==10493== 
-==10493== Invalid write of size 4
-==10493==    at 0x409B2D: Snail::makeRandomMove() (Snail.cpp:77)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493==  Address 0x639554c is 60 bytes inside a block of size 96 free'd
-==10493==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40966D: __gnu_cxx::new_allocator<Snail>::deallocate(Snail*, unsigned long) (new_allocator.h:110)
-==10493==    by 0x4095C5: std::allocator_traits<std::allocator<Snail> >::deallocate(std::allocator<Snail>&, Snail*, unsigned long) (alloc_traits.h:517)
-==10493==    by 0x4094F3: std::_Vector_base<Snail, std::allocator<Snail> >::_M_deallocate(Snail*, unsigned long) (stl_vector.h:178)
-==10493==    by 0x40AAFA: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:438)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088FD: main (main.cpp:23)
-==10493==  Block was alloc'd at
-==10493==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40B282: __gnu_cxx::new_allocator<Snail>::allocate(unsigned long, void const*) (new_allocator.h:104)
-==10493==    by 0x40B13E: std::allocator_traits<std::allocator<Snail> >::allocate(std::allocator<Snail>&, unsigned long) (alloc_traits.h:491)
-==10493==    by 0x40AF1F: std::_Vector_base<Snail, std::allocator<Snail> >::_M_allocate(unsigned long) (stl_vector.h:170)
-==10493==    by 0x40A9C9: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:412)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088E9: main (main.cpp:22)
-==10493== 
-==10493== Invalid read of size 4
-==10493==    at 0x409B34: Snail::makeRandomMove() (Snail.cpp:78)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493==  Address 0x6395548 is 56 bytes inside a block of size 96 free'd
-==10493==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40966D: __gnu_cxx::new_allocator<Snail>::deallocate(Snail*, unsigned long) (new_allocator.h:110)
-==10493==    by 0x4095C5: std::allocator_traits<std::allocator<Snail> >::deallocate(std::allocator<Snail>&, Snail*, unsigned long) (alloc_traits.h:517)
-==10493==    by 0x4094F3: std::_Vector_base<Snail, std::allocator<Snail> >::_M_deallocate(Snail*, unsigned long) (stl_vector.h:178)
-==10493==    by 0x40AAFA: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:438)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088FD: main (main.cpp:23)
-==10493==  Block was alloc'd at
-==10493==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40B282: __gnu_cxx::new_allocator<Snail>::allocate(unsigned long, void const*) (new_allocator.h:104)
-==10493==    by 0x40B13E: std::allocator_traits<std::allocator<Snail> >::allocate(std::allocator<Snail>&, unsigned long) (alloc_traits.h:491)
-==10493==    by 0x40AF1F: std::_Vector_base<Snail, std::allocator<Snail> >::_M_allocate(unsigned long) (stl_vector.h:170)
-==10493==    by 0x40A9C9: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:412)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088E9: main (main.cpp:22)
-==10493== 
-==10493== Invalid read of size 4
-==10493==    at 0x409B3E: Snail::makeRandomMove() (Snail.cpp:79)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493==  Address 0x639554c is 60 bytes inside a block of size 96 free'd
-==10493==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40966D: __gnu_cxx::new_allocator<Snail>::deallocate(Snail*, unsigned long) (new_allocator.h:110)
-==10493==    by 0x4095C5: std::allocator_traits<std::allocator<Snail> >::deallocate(std::allocator<Snail>&, Snail*, unsigned long) (alloc_traits.h:517)
-==10493==    by 0x4094F3: std::_Vector_base<Snail, std::allocator<Snail> >::_M_deallocate(Snail*, unsigned long) (stl_vector.h:178)
-==10493==    by 0x40AAFA: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:438)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088FD: main (main.cpp:23)
-==10493==  Block was alloc'd at
-==10493==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40B282: __gnu_cxx::new_allocator<Snail>::allocate(unsigned long, void const*) (new_allocator.h:104)
-==10493==    by 0x40B13E: std::allocator_traits<std::allocator<Snail> >::allocate(std::allocator<Snail>&, unsigned long) (alloc_traits.h:491)
-==10493==    by 0x40AF1F: std::_Vector_base<Snail, std::allocator<Snail> >::_M_allocate(unsigned long) (stl_vector.h:170)
-==10493==    by 0x40A9C9: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:412)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088E9: main (main.cpp:22)
-==10493== 
-==10493== Invalid read of size 4
-==10493==    at 0x409A51: Snail::eat() (Snail.cpp:63)
-==10493==    by 0x409B4F: Snail::makeRandomMove() (Snail.cpp:80)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493==  Address 0x6395560 is 80 bytes inside a block of size 96 free'd
-==10493==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40966D: __gnu_cxx::new_allocator<Snail>::deallocate(Snail*, unsigned long) (new_allocator.h:110)
-==10493==    by 0x4095C5: std::allocator_traits<std::allocator<Snail> >::deallocate(std::allocator<Snail>&, Snail*, unsigned long) (alloc_traits.h:517)
-==10493==    by 0x4094F3: std::_Vector_base<Snail, std::allocator<Snail> >::_M_deallocate(Snail*, unsigned long) (stl_vector.h:178)
-==10493==    by 0x40AAFA: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:438)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088FD: main (main.cpp:23)
-==10493==  Block was alloc'd at
-==10493==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40B282: __gnu_cxx::new_allocator<Snail>::allocate(unsigned long, void const*) (new_allocator.h:104)
-==10493==    by 0x40B13E: std::allocator_traits<std::allocator<Snail> >::allocate(std::allocator<Snail>&, unsigned long) (alloc_traits.h:491)
-==10493==    by 0x40AF1F: std::_Vector_base<Snail, std::allocator<Snail> >::_M_allocate(unsigned long) (stl_vector.h:170)
-==10493==    by 0x40A9C9: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:412)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088E9: main (main.cpp:22)
-==10493== 
-==10493== Invalid read of size 4
-==10493==    at 0x409A5A: Snail::eat() (Snail.cpp:63)
-==10493==    by 0x409B4F: Snail::makeRandomMove() (Snail.cpp:80)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493==  Address 0x639554c is 60 bytes inside a block of size 96 free'd
-==10493==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40966D: __gnu_cxx::new_allocator<Snail>::deallocate(Snail*, unsigned long) (new_allocator.h:110)
-==10493==    by 0x4095C5: std::allocator_traits<std::allocator<Snail> >::deallocate(std::allocator<Snail>&, Snail*, unsigned long) (alloc_traits.h:517)
-==10493==    by 0x4094F3: std::_Vector_base<Snail, std::allocator<Snail> >::_M_deallocate(Snail*, unsigned long) (stl_vector.h:178)
-==10493==    by 0x40AAFA: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:438)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088FD: main (main.cpp:23)
-==10493==  Block was alloc'd at
-==10493==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40B282: __gnu_cxx::new_allocator<Snail>::allocate(unsigned long, void const*) (new_allocator.h:104)
-==10493==    by 0x40B13E: std::allocator_traits<std::allocator<Snail> >::allocate(std::allocator<Snail>&, unsigned long) (alloc_traits.h:491)
-==10493==    by 0x40AF1F: std::_Vector_base<Snail, std::allocator<Snail> >::_M_allocate(unsigned long) (stl_vector.h:170)
-==10493==    by 0x40A9C9: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:412)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088E9: main (main.cpp:22)
-==10493== 
-==10493== Invalid read of size 4
-==10493==    at 0x409A61: Snail::eat() (Snail.cpp:63)
-==10493==    by 0x409B4F: Snail::makeRandomMove() (Snail.cpp:80)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493==  Address 0x6395548 is 56 bytes inside a block of size 96 free'd
-==10493==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40966D: __gnu_cxx::new_allocator<Snail>::deallocate(Snail*, unsigned long) (new_allocator.h:110)
-==10493==    by 0x4095C5: std::allocator_traits<std::allocator<Snail> >::deallocate(std::allocator<Snail>&, Snail*, unsigned long) (alloc_traits.h:517)
-==10493==    by 0x4094F3: std::_Vector_base<Snail, std::allocator<Snail> >::_M_deallocate(Snail*, unsigned long) (stl_vector.h:178)
-==10493==    by 0x40AAFA: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:438)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088FD: main (main.cpp:23)
-==10493==  Block was alloc'd at
-==10493==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40B282: __gnu_cxx::new_allocator<Snail>::allocate(unsigned long, void const*) (new_allocator.h:104)
-==10493==    by 0x40B13E: std::allocator_traits<std::allocator<Snail> >::allocate(std::allocator<Snail>&, unsigned long) (alloc_traits.h:491)
-==10493==    by 0x40AF1F: std::_Vector_base<Snail, std::allocator<Snail> >::_M_allocate(unsigned long) (stl_vector.h:170)
-==10493==    by 0x40A9C9: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:412)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088E9: main (main.cpp:22)
-==10493== 
-==10493== Invalid read of size 8
-==10493==    at 0x409A68: Snail::eat() (Snail.cpp:63)
-==10493==    by 0x409B4F: Snail::makeRandomMove() (Snail.cpp:80)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493==  Address 0x6395558 is 72 bytes inside a block of size 96 free'd
-==10493==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40966D: __gnu_cxx::new_allocator<Snail>::deallocate(Snail*, unsigned long) (new_allocator.h:110)
-==10493==    by 0x4095C5: std::allocator_traits<std::allocator<Snail> >::deallocate(std::allocator<Snail>&, Snail*, unsigned long) (alloc_traits.h:517)
-==10493==    by 0x4094F3: std::_Vector_base<Snail, std::allocator<Snail> >::_M_deallocate(Snail*, unsigned long) (stl_vector.h:178)
-==10493==    by 0x40AAFA: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:438)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088FD: main (main.cpp:23)
-==10493==  Block was alloc'd at
-==10493==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10493==    by 0x40B282: __gnu_cxx::new_allocator<Snail>::allocate(unsigned long, void const*) (new_allocator.h:104)
-==10493==    by 0x40B13E: std::allocator_traits<std::allocator<Snail> >::allocate(std::allocator<Snail>&, unsigned long) (alloc_traits.h:491)
-==10493==    by 0x40AF1F: std::_Vector_base<Snail, std::allocator<Snail> >::_M_allocate(unsigned long) (stl_vector.h:170)
-==10493==    by 0x40A9C9: void std::vector<Snail, std::allocator<Snail> >::_M_emplace_back_aux<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:412)
-==10493==    by 0x40A7A1: void std::vector<Snail, std::allocator<Snail> >::emplace_back<ColorPair, Grass*&, int, int>(ColorPair&&, Grass*&, int&&, int&&) (vector.tcc:101)
-==10493==    by 0x40A48B: SnailColony::add() (SnailColony.cpp:43)
-==10493==    by 0x4088E9: main (main.cpp:22)
-==10493== 
-==10493== 
-==10493== Process terminating with default action of signal 11 (SIGSEGV)
-==10493==  Bad permissions for mapped region at address 0x40D8D8
-==10493==    at 0x40A1D3: Tile::shrink(unsigned int) (Tile.cpp:59)
-==10493==    by 0x409A7F: Snail::eat() (Snail.cpp:63)
-==10493==    by 0x409B4F: Snail::makeRandomMove() (Snail.cpp:80)
-==10493==    by 0x409E19: Snail::snailThreadFn(void*) (Snail.cpp:160)
-==10493==    by 0x528C6F9: start_thread (pthread_create.c:333)
-==10493==    by 0x5E49B5C: clone (clone.S:109)
-==10493== 
-==10493== HEAP SUMMARY:
-==10493==     in use at exit: 501,704 bytes in 400 blocks
-==10493==   total heap usage: 423 allocs, 23 frees, 520,217 bytes allocated
-==10493== 
-==10493== LEAK SUMMARY:
-==10493==    definitely lost: 0 bytes in 0 blocks
-==10493==    indirectly lost: 0 bytes in 0 blocks
-==10493==      possibly lost: 1,152 bytes in 4 blocks
-==10493==    still reachable: 500,552 bytes in 396 blocks
-==10493==         suppressed: 0 bytes in 0 blocks
-==10493== Rerun with --leak-check=full to see details of leaked memory
-==10493== 
-==10493== For counts of detected and suppressed errors, rerun with: -v
-==10493== ERROR SUMMARY: 23 errors from 23 contexts (suppressed: 0 from 0)
+==8431== Memcheck, a memory error detector
+==8431== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==8431== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==8431== Command: ./SnailColony
+==8431== 
+--8431-- Valgrind options:
+--8431--    -v
+--8431--    --log-fd=1
+--8431-- Contents of /proc/version:
+--8431--   Linux version 4.1.20-11-default (geeko@buildhost) (gcc version 4.8.5 (SUSE Linux) ) #1 SMP PREEMPT Fri Mar 18 14:42:07 UTC 2016 (0a392b2)
+--8431-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-rdtscp-sse3-avx
+--8431-- Page sizes: currently 4096, max supported 4096
+--8431-- Valgrind library directory: /usr/lib64/valgrind
+--8431-- Reading syms from /home/bartosz/Programowanie/C++/SnailColony/Compile/SnailColony
+--8431-- Reading syms from /lib64/ld-2.19.so
+--8431-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--8431--    object doesn't have a symbol table
+--8431--    object doesn't have a dynamic symbol table
+--8431-- Scheduler: using generic scheduler lock implementation.
+--8431-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==8431== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-8431-by-bartosz-on-suse.localhost
+==8431== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-8431-by-bartosz-on-suse.localhost
+==8431== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-8431-by-bartosz-on-suse.localhost
+==8431== 
+==8431== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==8431== don't want to do, unless you know exactly what you're doing,
+==8431== or are doing some strange experiment):
+==8431==   /usr/lib64/valgrind/../../bin/vgdb --pid=8431 ...command...
+==8431== 
+==8431== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==8431==   /path/to/gdb ./SnailColony
+==8431== and then give GDB the following command
+==8431==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=8431
+==8431== --pid is optional if only one valgrind process is running
+==8431== 
+--8431-- REDIR: 0x4017ca0 (ld-linux-x86-64.so.2:strlen) redirected to 0x38075d61 (???)
+--8431-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--8431--    object doesn't have a symbol table
+--8431-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--8431--    object doesn't have a symbol table
+==8431== WARNING: new redirection conflicts with existing -- ignoring it
+--8431--     old: 0x04017ca0 (strlen              ) R-> (0000.0) 0x38075d61 ???
+--8431--     new: 0x04017ca0 (strlen              ) R-> (2007.0) 0x04c2c730 strlen
+--8431-- REDIR: 0x4017a50 (ld-linux-x86-64.so.2:index) redirected to 0x4c2c2e0 (index)
+--8431-- REDIR: 0x4017c70 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c2d880 (strcmp)
+--8431-- REDIR: 0x40189a0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c30330 (mempcpy)
+--8431-- Reading syms from /lib64/libncurses.so.5.9
+--8431--    object doesn't have a symbol table
+--8431-- Reading syms from /lib64/libtinfo.so.5.9
+--8431--    object doesn't have a symbol table
+--8431-- Reading syms from /usr/lib64/libform.so.5.9
+--8431--    object doesn't have a symbol table
+--8431-- Reading syms from /lib64/libpthread-2.19.so
+--8431-- Reading syms from /usr/lib64/libstdc++.so.6.0.21
+--8431--    object doesn't have a symbol table
+--8431-- Reading syms from /lib64/libm-2.19.so
+--8431-- Reading syms from /lib64/libgcc_s.so.1
+--8431--    object doesn't have a symbol table
+--8431-- Reading syms from /lib64/libc-2.19.so
+--8431-- Reading syms from /lib64/libdl-2.19.so
+--8431-- REDIR: 0x5fdf460 (libc.so.6:strcasecmp) redirected to 0x4a23770 (_vgnU_ifunc_wrapper)
+--8431-- REDIR: 0x5fe1750 (libc.so.6:strncasecmp) redirected to 0x4a23770 (_vgnU_ifunc_wrapper)
+--8431-- REDIR: 0x5fdebe0 (libc.so.6:memcpy@GLIBC_2.2.5) redirected to 0x4a23770 (_vgnU_ifunc_wrapper)
+--8431-- REDIR: 0x5fdcf60 (libc.so.6:rindex) redirected to 0x4c2bfc0 (rindex)
+--8431-- REDIR: 0x5fd5610 (libc.so.6:malloc) redirected to 0x4c290a0 (malloc)
+--8431-- REDIR: 0x5fdb260 (libc.so.6:strlen) redirected to 0x4c2c670 (strlen)
+--8431-- REDIR: 0x5fde640 (libc.so.6:__GI_memcmp) redirected to 0x4c2f110 (__GI_memcmp)
+--8431-- REDIR: 0x5fd9810 (libc.so.6:strcmp) redirected to 0x4a23770 (_vgnU_ifunc_wrapper)
+--8431-- REDIR: 0x607df50 (libc.so.6:__strcmp_ssse3) redirected to 0x4c2d740 (strcmp)
+--8431-- REDIR: 0xffffffffff600400 (???:???) redirected to 0x38075d4d (???)
+--8431-- REDIR: 0x5fdb6d0 (libc.so.6:__GI_strncmp) redirected to 0x4c2cec0 (__GI_strncmp)
+--8431-- REDIR: 0x5fd5f80 (libc.so.6:calloc) redirected to 0x4c2b180 (calloc)
+--8431-- REDIR: 0x5fe5df0 (libc.so.6:strchrnul) redirected to 0x4c2ff40 (strchrnul)
+--8431-- REDIR: 0x5fdb420 (libc.so.6:strnlen) redirected to 0x4c2c610 (strnlen)
+--8431-- REDIR: 0x5fd95c0 (libc.so.6:index) redirected to 0x4a23770 (_vgnU_ifunc_wrapper)
+--8431-- REDIR: 0x5fd95f0 (libc.so.6:__GI_strchr) redirected to 0x4c2c120 (__GI_strchr)
+--8431-- REDIR: 0x5fe3e80 (libc.so.6:__GI_memcpy) redirected to 0x4c2e220 (__GI_memcpy)
+--8431-- REDIR: 0x5fdaca0 (libc.so.6:strcpy) redirected to 0x4a23770 (_vgnU_ifunc_wrapper)
+--8431-- REDIR: 0x5fee910 (libc.so.6:__strcpy_sse2_unaligned) redirected to 0x4c2c750 (strcpy)
+--8431-- REDIR: 0x5fd5c50 (libc.so.6:free) redirected to 0x4c2a310 (free)
+--8431-- REDIR: 0x5fddbb0 (libc.so.6:__GI_strstr) redirected to 0x4c305c0 (__strstr_sse2)
+--8431-- REDIR: 0x5fe3e30 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a23770 (_vgnU_ifunc_wrapper)
+--8431-- REDIR: 0x5fe9d50 (libc.so.6:__memcpy_sse2_unaligned) redirected to 0x4c2dc40 (memcpy@@GLIBC_2.14)
+--8431-- REDIR: 0x5fd5ce0 (libc.so.6:realloc) redirected to 0x4c2b3a0 (realloc)
+--8431-- REDIR: 0x5fdcf20 (libc.so.6:strncpy) redirected to 0x4a23770 (_vgnU_ifunc_wrapper)
+--8431-- REDIR: 0x5feef40 (libc.so.6:__strncpy_sse2_unaligned) redirected to 0x4c2cd00 (__strncpy_sse2_unaligned)
+--8431-- REDIR: 0x5fde070 (libc.so.6:strstr) redirected to 0x4a23770 (_vgnU_ifunc_wrapper)
+--8431-- REDIR: 0x5ff2fb0 (libc.so.6:__strstr_sse2_unaligned) redirected to 0x4c30530 (strstr)
+[?1049h[1;41r(B[m[4l[?7h[39;49m[39;49m[39m[40m[H[2J--8431-- REDIR: 0x5fdec70 (libc.so.6:memset) redirected to 0x4c2f8e0 (memset)
+(0[0m[39;49m[39m[40mlqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqk(B[39;49m[39m[40m[2;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[3;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[4;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[5;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[6;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[7;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[8;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[9;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[10;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[11;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[12;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[13;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[14;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[15;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[16;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[17;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[18;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[19;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[20;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[21;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[22;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[23;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[24;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[25;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[26;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[27;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[28;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[29;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[30;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[31;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[32;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[33;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[34;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[35;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[36;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[37;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[38;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[39;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[40;1H(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[93G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[41;1H(0[0m[39;49m[39m[40mmqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq[?7lj[?7h(B[39;49m[39m[40m[H(0[0m[39;49m[39m[40m(B[39;49m[39m[40m--8431-- REDIR: 0x5753310 (libstdc++.so.6:operator new(unsigned long)) redirected to 0x4c29600 (operator new(unsigned long))
+
+[C(0[0m[39;49m[39m[40mlqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqk(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mmqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj(B[39;49m[39m[40m[H
+[C(0[0m[39;49m[39m[40m(B[39;49m[39m[40m[H[31;2H(0[0m[39;49m[39m[40mlqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqk(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m[92G(0[0m[39;49m[39m[40mx(B[39;49m[39m[40m
+[C(0[0m[39;49m[39m[40mmqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj(B[39;49m[39m[40m[31;2H(0[0m[39;49m[39m[40m(B[39;49m[39m[40m[H--8431-- REDIR: 0x5751530 (libstdc++.so.6:operator delete(void*)) redirected to 0x4c2a7e0 (operator delete(void*))
+==8431== Thread 4:
+==8431== Use of uninitialised value of size 8
+==8431==    at 0x40A4AF: Tile::shrink(unsigned int) (Tile.cpp:50)
+==8431==    by 0x409E24: Snail::eat() (Snail.cpp:86)
+==8431==    by 0x409EAF: Snail::makeRandomMove() (Snail.cpp:100)
+==8431==    by 0x409B2D: Snail::snailThreadFn(void*) (Snail.cpp:180)
+==8431==    by 0x54A90A3: start_thread (in /lib64/libpthread-2.19.so)
+==8431==    by 0x603EFEC: clone (in /lib64/libc-2.19.so)
+==8431== 
+==8431== Invalid read of size 4
+==8431==    at 0x40A4AF: Tile::shrink(unsigned int) (Tile.cpp:50)
+==8431==    by 0x409E24: Snail::eat() (Snail.cpp:86)
+==8431==    by 0x409EAF: Snail::makeRandomMove() (Snail.cpp:100)
+==8431==    by 0x409B2D: Snail::snailThreadFn(void*) (Snail.cpp:180)
+==8431==    by 0x54A90A3: start_thread (in /lib64/libpthread-2.19.so)
+==8431==    by 0x603EFEC: clone (in /lib64/libc-2.19.so)
+==8431==  Address 0x2c is not stack'd, malloc'd or (recently) free'd
+==8431== 
+==8431== 
+==8431== Process terminating with default action of signal 11 (SIGSEGV)
+==8431==  Access not within mapped region at address 0x2C
+==8431==    at 0x40A4AF: Tile::shrink(unsigned int) (Tile.cpp:50)
+==8431==    by 0x409E24: Snail::eat() (Snail.cpp:86)
+==8431==    by 0x409EAF: Snail::makeRandomMove() (Snail.cpp:100)
+==8431==    by 0x409B2D: Snail::snailThreadFn(void*) (Snail.cpp:180)
+==8431==    by 0x54A90A3: start_thread (in /lib64/libpthread-2.19.so)
+==8431==    by 0x603EFEC: clone (in /lib64/libc-2.19.so)
+==8431==  If you believe this happened as a result of a stack
+==8431==  overflow in your program's main thread (unlikely but
+==8431==  possible), you can try to increase the size of the
+==8431==  main thread stack using the --main-stacksize= flag.
+==8431==  The main thread stack size used in this run was 8388608.
+==8431== 
+==8431== HEAP SUMMARY:
+==8431==     in use at exit: 250,100 bytes in 219 blocks
+==8431==   total heap usage: 242 allocs, 23 frees, 262,575 bytes allocated
+==8431== 
+==8431== Searching for pointers to 219 not-freed blocks
+==8431== Checked 25,558,416 bytes
+==8431== 
+==8431== LEAK SUMMARY:
+==8431==    definitely lost: 0 bytes in 0 blocks
+==8431==    indirectly lost: 0 bytes in 0 blocks
+==8431==      possibly lost: 864 bytes in 3 blocks
+==8431==    still reachable: 249,236 bytes in 216 blocks
+==8431==         suppressed: 0 bytes in 0 blocks
+==8431== Rerun with --leak-check=full to see details of leaked memory
+==8431== 
+==8431== Use --track-origins=yes to see where uninitialised values come from
+==8431== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==8431== 
+==8431== 1 errors in context 1 of 2:
+==8431== Invalid read of size 4
+==8431==    at 0x40A4AF: Tile::shrink(unsigned int) (Tile.cpp:50)
+==8431==    by 0x409E24: Snail::eat() (Snail.cpp:86)
+==8431==    by 0x409EAF: Snail::makeRandomMove() (Snail.cpp:100)
+==8431==    by 0x409B2D: Snail::snailThreadFn(void*) (Snail.cpp:180)
+==8431==    by 0x54A90A3: start_thread (in /lib64/libpthread-2.19.so)
+==8431==    by 0x603EFEC: clone (in /lib64/libc-2.19.so)
+==8431==  Address 0x2c is not stack'd, malloc'd or (recently) free'd
+==8431== 
+==8431== 
+==8431== 1 errors in context 2 of 2:
+==8431== Use of uninitialised value of size 8
+==8431==    at 0x40A4AF: Tile::shrink(unsigned int) (Tile.cpp:50)
+==8431==    by 0x409E24: Snail::eat() (Snail.cpp:86)
+==8431==    by 0x409EAF: Snail::makeRandomMove() (Snail.cpp:100)
+==8431==    by 0x409B2D: Snail::snailThreadFn(void*) (Snail.cpp:180)
+==8431==    by 0x54A90A3: start_thread (in /lib64/libpthread-2.19.so)
+==8431==    by 0x603EFEC: clone (in /lib64/libc-2.19.so)
+==8431== 
+==8431== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)

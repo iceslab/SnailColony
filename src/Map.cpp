@@ -130,10 +130,9 @@ void Map::printColony()
 	{
 		ColorPair color = colony.getSnail(i).getColor();
 		wattron(mapWindow, COLOR_PAIR(color));
-		mvwprintw(mapWindow,
-				  colony.getSnail(i).getPosX() + 1,
-				  colony.getSnail(i).getPosY() + 1,
-				  "X");
+		int x = 0, y = 0;
+		colony.getSnail(i).getPos(x, y);
+		mvwprintw(mapWindow, x + 1, y + 1, "X");
 		wattroff(mapWindow, COLOR_PAIR(color));
 	}
 

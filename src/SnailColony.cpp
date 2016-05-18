@@ -41,6 +41,7 @@ void SnailColony::add()
                             grass,
                             rand() % grass->getWidth(),
                             rand() % grass->getHeight());
+        snails.back().init();
     }
 }
 

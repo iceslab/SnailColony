@@ -11,41 +11,64 @@ const int Snail::minHunger = 0;
 const int Snail::maxHunger = 10;
 
 Snail::Snail(ColorPair color, Grass* grass, int x, int y) :
-		posX(x), posY(y), color(color), hunger(minHunger), state(ALIVE), grass(grass)
+		posX(x), posY(y), color(color), hunger(minHunger), state(ALIVE), grass(grass), stop(false)
 {
+}
+
+void Snail::init()
+{
+	pthread_mutex_init(&snailMutex, NULL);
 	pthread_create(&snailThread, NULL, Snail::snailThreadFn, this);
-
-
 }
 
 Snail::~Snail()
 {
-
+	setStop(true);
+	pthread_mutex_destroy(&snailMutex);
 }
 
-int Snail::getPosX() const
+void Snail::setPos(int x, int y)
 {
-	return posX;
+	pthread_mutex_lock(&snailMutex);
+	posX = x;
+	posY = y;
+	pthread_mutex_unlock(&snailMutex);
 }
 
-void Snail::setPosX(int posX)
+void Snail::changePos(int dx, int dy)
 {
-	this->posX = posX;
+	pthread_mutex_lock(&snailMutex);
+	posX += dx;
+	posY += dy;
+	pthread_mutex_unlock(&snailMutex);
 }
 
-int Snail::getPosY() const
+void Snail::getPos(int &x, int &y) const
 {
-	return posY;
-}
-
-void Snail::setPosY(int posY)
-{
-	this->posY = posY;
+	pthread_mutex_lock(&snailMutex);
+	x = posX;
+	y = posY;
+	pthread_mutex_unlock(&snailMutex);
 }
 
 void Snail::setGrass(Grass* grass)
 {
 	this->grass = grass;
+}
+
+bool Snail::getStop() const
+{
+	pthread_mutex_lock(&snailMutex);
+	bool ret = stop;
+	pthread_mutex_unlock(&snailMutex);
+	return ret;
+}
+
+void Snail::setStop(bool val)
+{
+	pthread_mutex_lock(&snailMutex);
+	stop = val;
+	pthread_mutex_unlock(&snailMutex);
 }
 
 ColorPair Snail::getColor() const
@@ -73,8 +96,7 @@ bool Snail::makeRandomMove()
 			int deltaX = 0;
 			int deltaY = 0;
 			drawMove(deltaX, deltaY);
-			posX += deltaX;
-			posY += deltaY;
+			changePos(deltaX, deltaY);
 			eat();
 			retVal = true;
 		}
@@ -130,9 +152,7 @@ void Snail::drawMove(int& deltaX, int& deltaY)
 			break;
 	}
 
-	auto width = grass->getWidth();
-	auto height = grass->getHeight();
-
+	pthread_mutex_lock(&snailMutex);
 	if(posX == 0 && deltaX < 0)
 	{
 		deltaX = 1;
@@ -149,14 +169,18 @@ void Snail::drawMove(int& deltaX, int& deltaY)
 	{
 		deltaY = -1;
 	}
+	pthread_mutex_unlock(&snailMutex);
 }
 
 void* Snail::snailThreadFn(void* snail)
 {
+	Snail* casted = static_cast<Snail*>(snail);
 	while(true)
 	{
-		if(!static_cast<Snail*>(snail)->makeRandomMove())
+		if(casted->getStop() || casted->makeRandomMove())
 			break;
 		usleep(100000);
 	}
+
+	return snail;
 }
