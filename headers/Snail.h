@@ -14,7 +14,7 @@
 class Snail
 {
 public:
-	Snail(ColorPair color);
+	Snail(ColorPair color, Grass* grass);
 	virtual ~Snail();
 
 	int getPosX() const;
@@ -40,11 +40,15 @@ private:
 	Grass* grass;
 	int hunger;
 
+	pthread_t snailThread;
+
 	static const int minHunger;
 	static const int maxHunger;
 
 	unsigned decreaseHunger(unsigned amount = 1);
 	void drawMove(int& deltaX, int& deltaY);
+
+	static void* snailThreadFn(void* snail);
 };
 
 enum SnailMove

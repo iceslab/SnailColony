@@ -10,9 +10,13 @@
 const int Snail::minHunger = 0;
 const int Snail::maxHunger = 10;
 
-Snail::Snail(ColorPair color) :
-		posX(0), posY(0), color(color), hunger(0), state(ALIVE)
-{}
+Snail::Snail(ColorPair color, Grass* grass) :
+		posX(0), posY(0), color(color), hunger(0), state(ALIVE), grass(grass)
+{
+	pthread_create(&snailThread, NULL, Snail::snailThreadFn, this);
+
+
+}
 
 Snail::~Snail()
 {
@@ -70,6 +74,7 @@ void Snail::makeRandomMove()
 			drawMove(deltaX, deltaY);
 			posX += deltaX;
 			posY += deltaY;
+			eat();
 		}
 		else
 		{
@@ -116,6 +121,9 @@ void Snail::drawMove(int& deltaX, int& deltaY)
 			break;
 	}
 
+	auto width = grass->getWidth();
+	auto height = grass->getHeight();
+
 	if(posX == 0 && deltaX < 0)
 	{
 		deltaX = 1;
@@ -131,5 +139,13 @@ void Snail::drawMove(int& deltaX, int& deltaY)
 	if(posY == grass->getWidth() && deltaY > 0)
 	{
 		deltaY = -1;
+	}
+}
+
+void* Snail::snailThreadFn(void* snail)
+{
+	while(true)
+	{
+		static_cast<Snail*>(snail)->makeRandomMove();
 	}
 }

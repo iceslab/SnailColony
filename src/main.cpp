@@ -7,8 +7,9 @@ int main(int argc, char** argv)
 
 	if(CommonUtils::initLibrary())
 	{
+//		getchar();
 		Map map;
-		SnailColony colony;
+//		SnailColony colony;
 		StatusBar statusBar;
 
 		if(CommonUtils::initWindows(map, statusBar))
@@ -17,6 +18,7 @@ int main(int argc, char** argv)
 //			mvprintw(1, 1, "%d, %d", map.getHeight(), map.getWidth());
 //			mvprintw(2, 1, "%d, %d", statusBar.getHeight(), statusBar.getWidth());
 //			wrefresh(stdscr);
+			map.getColony().add();
 			refresh();
 
 			for(unsigned i = 0; i < 10; i++)
@@ -25,7 +27,7 @@ int main(int argc, char** argv)
 				sleep(1);
 			}
 //			sleep(2);
-			getchar();
+//			getchar();
 
 		}
 

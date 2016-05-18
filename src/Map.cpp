@@ -7,7 +7,7 @@
 
 #include "../headers/Map.h"
 
-Map::Map()
+Map::Map() : colony(0)
 {
 	height = 0;
 	width = 0;
@@ -20,6 +20,7 @@ Map::Map(int height, int width, int xPos, int yPos) : Map()
 	this->width = width;
 	mapWindow = newwin(height, width, yPos, xPos);
 	grass = Grass(height - 2, width - 2);
+	colony.setGrass(&grass);
 
 	wborder(mapWindow, '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0');
 	wrefresh(mapWindow);
@@ -37,6 +38,8 @@ Map::Map(Map&& map)
 	width = map.width;
 	mapWindow = map.mapWindow;
 	grass = move(map.grass);
+	colony = move(colony);
+	colony.setGrass(&grass);
 
 	map.height = 0;
 	map.width = 0;
@@ -49,6 +52,8 @@ Map& Map::operator= (Map&& map)
 	width = map.width;
 	mapWindow = map.mapWindow;
 	grass = move(map.grass);
+	colony = move(map.colony);
+	colony.setGrass(&grass);
 
 	map.height = 0;
 	map.width = 0;
@@ -76,10 +81,16 @@ int Map::getWidth() const
 	return width;
 }
 
+SnailColony& Map::getColony()
+{
+	return colony;
+}
+
 void Map::growMap()
 {
 	grass.growGrass();
 	printGrass();
+	printColony();
 }
 
 void Map::printGrass()

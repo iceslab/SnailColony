@@ -6,7 +6,7 @@
 
 const unsigned SnailColony::maxColonySize = LAST_SNAIL_COLOR - FIRST_SNAIL_COLOR + 1;
 
-SnailColony::SnailColony(unsigned startingSize)
+SnailColony::SnailColony(unsigned startingSize) : snails(), grass(nullptr)
 {
     if(startingSize > maxColonySize)
     {
@@ -19,11 +19,25 @@ SnailColony::SnailColony(unsigned startingSize)
     }
 }
 
+SnailColony::SnailColony(SnailColony&& colony)
+{
+    snails = move(colony.snails);
+    grass = colony.grass;
+}
+
+SnailColony& SnailColony::operator= (SnailColony&& colony)
+{
+    snails = move(colony.snails);
+    grass = colony.grass;
+
+    return *this;
+}
+
 void SnailColony::add()
 {
-    if(snails.size() < maxColonySize)
+    if(nullptr != grass && snails.size() < maxColonySize)
     {
-        snails.emplace_back(static_cast<ColorPair>(snails.size() + FIRST_SNAIL_COLOR));
+        snails.emplace_back(static_cast<ColorPair>(snails.size() + FIRST_SNAIL_COLOR), grass);
     }
 }
 
@@ -48,4 +62,9 @@ unsigned SnailColony::getColonySize() const
 const Snail& SnailColony::getSnail(unsigned index) const
 {
     return snails[index];
+}
+
+void SnailColony::setGrass(Grass* grass)
+{
+    this->grass = grass;
 }

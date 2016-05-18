@@ -23,7 +23,11 @@ public:
 	int getHeight() const;
 	int getWidth() const;
 
+	SnailColony& getColony();
+
 	void growMap();
+
+
 
 protected:
 private:

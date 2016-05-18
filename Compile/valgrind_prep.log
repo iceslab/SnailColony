@@ -1,0 +1,93 @@
+==7047== Memcheck, a memory error detector
+==7047== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==7047== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==7047== Command: ./SnailColony
+==7047== 
+[3G[30m[41mX(B[m[39;49m[37m[40m[H==7047== Thread 2:
+==7047== Invalid read of size 4
+==7047==    at 0x409EA9: Tile::shrink(unsigned int) (Tile.cpp:50)
+==7047==    by 0x409869: Snail::eat() (Snail.cpp:63)
+==7047==    by 0x40991D: Snail::makeRandomMove() (Snail.cpp:77)
+==7047==    by 0x409B73: Snail::snailThreadFn(void*) (Snail.cpp:149)
+==7047==    by 0x528C6F9: start_thread (pthread_create.c:333)
+==7047==    by 0x5B40B5C: clone (clone.S:109)
+==7047==  Address 0x6374dc8 is 8 bytes before a block of size 1,792 alloc'd
+==7047==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7047==    by 0x40C9B5: __gnu_cxx::new_allocator<Tile>::allocate(unsigned long, void const*) (new_allocator.h:104)
+==7047==    by 0x40C645: std::allocator_traits<std::allocator<Tile> >::allocate(std::allocator<Tile>&, unsigned long) (alloc_traits.h:491)
+==7047==    by 0x40C363: std::_Vector_base<Tile, std::allocator<Tile> >::_M_allocate(unsigned long) (stl_vector.h:170)
+==7047==    by 0x40BDBF: std::vector<Tile, std::allocator<Tile> >::_M_default_append(unsigned long) (vector.tcc:557)
+==7047==    by 0x40B7B0: std::vector<Tile, std::allocator<Tile> >::resize(unsigned long) (stl_vector.h:676)
+==7047==    by 0x40B1B5: Grass::Grass(int, int, int) (Grass.cpp:18)
+==7047==    by 0x408929: Map::Map(int, int, int, int) (Map.cpp:22)
+==7047==    by 0x408473: CommonUtils::initWindows(Map&, StatusBar&) (CommonUtils.cpp:46)
+==7047==    by 0x4086F9: main (main.cpp:15)
+==7047== 
+==7047== Invalid read of size 4
+==7047==    at 0x409EB4: Tile::shrink(unsigned int) (Tile.cpp:52)
+==7047==    by 0x409869: Snail::eat() (Snail.cpp:63)
+==7047==    by 0x40991D: Snail::makeRandomMove() (Snail.cpp:77)
+==7047==    by 0x409B73: Snail::snailThreadFn(void*) (Snail.cpp:149)
+==7047==    by 0x528C6F9: start_thread (pthread_create.c:333)
+==7047==    by 0x5B40B5C: clone (clone.S:109)
+==7047==  Address 0x6374da8 is 24 bytes after a block of size 1,792 in arena "client"
+==7047== 
+==7047== Invalid read of size 4
+==7047==    at 0x409ED7: Tile::shrink(unsigned int) (Tile.cpp:59)
+==7047==    by 0x409869: Snail::eat() (Snail.cpp:63)
+==7047==    by 0x40991D: Snail::makeRandomMove() (Snail.cpp:77)
+==7047==    by 0x409B73: Snail::snailThreadFn(void*) (Snail.cpp:149)
+==7047==    by 0x528C6F9: start_thread (pthread_create.c:333)
+==7047==    by 0x5B40B5C: clone (clone.S:109)
+==7047==  Address 0x6374da8 is 24 bytes after a block of size 1,792 in arena "client"
+==7047== 
+==7047== Invalid write of size 4
+==7047==    at 0x409EE3: Tile::shrink(unsigned int) (Tile.cpp:59)
+==7047==    by 0x409869: Snail::eat() (Snail.cpp:63)
+==7047==    by 0x40991D: Snail::makeRandomMove() (Snail.cpp:77)
+==7047==    by 0x409B73: Snail::snailThreadFn(void*) (Snail.cpp:149)
+==7047==    by 0x528C6F9: start_thread (pthread_create.c:333)
+==7047==    by 0x5B40B5C: clone (clone.S:109)
+==7047==  Address 0x6374da8 is 24 bytes after a block of size 1,792 in arena "client"
+==7047== 
+==7047== Conditional jump or move depends on uninitialised value(s)
+==7047==    at 0x409EAE: Tile::shrink(unsigned int) (Tile.cpp:50)
+==7047==    by 0x409869: Snail::eat() (Snail.cpp:63)
+==7047==    by 0x40991D: Snail::makeRandomMove() (Snail.cpp:77)
+==7047==    by 0x409B73: Snail::snailThreadFn(void*) (Snail.cpp:149)
+==7047==    by 0x528C6F9: start_thread (pthread_create.c:333)
+==7047==    by 0x5B40B5C: clone (clone.S:109)
+==7047== 
+==7047== Conditional jump or move depends on uninitialised value(s)
+==7047==    at 0x409EBA: Tile::shrink(unsigned int) (Tile.cpp:52)
+==7047==    by 0x409869: Snail::eat() (Snail.cpp:63)
+==7047==    by 0x40991D: Snail::makeRandomMove() (Snail.cpp:77)
+==7047==    by 0x409B73: Snail::snailThreadFn(void*) (Snail.cpp:149)
+==7047==    by 0x528C6F9: start_thread (pthread_create.c:333)
+==7047==    by 0x5B40B5C: clone (clone.S:109)
+==7047== 
+==7047== 
+==7047== Process terminating with default action of signal 11 (SIGSEGV)
+==7047==  Bad permissions for mapped region at address 0x630EFF8
+==7047==    at 0x409EE3: Tile::shrink(unsigned int) (Tile.cpp:59)
+==7047==    by 0x409869: Snail::eat() (Snail.cpp:63)
+==7047==    by 0x40991D: Snail::makeRandomMove() (Snail.cpp:77)
+==7047==    by 0x409B73: Snail::snailThreadFn(void*) (Snail.cpp:149)
+==7047==    by 0x528C6F9: start_thread (pthread_create.c:333)
+==7047==    by 0x5B40B5C: clone (clone.S:109)
+==7047== 
+==7047== HEAP SUMMARY:
+==7047==     in use at exit: 500,696 bytes in 397 blocks
+==7047==   total heap usage: 418 allocs, 21 frees, 519,065 bytes allocated
+==7047== 
+==7047== LEAK SUMMARY:
+==7047==    definitely lost: 0 bytes in 0 blocks
+==7047==    indirectly lost: 0 bytes in 0 blocks
+==7047==      possibly lost: 288 bytes in 1 blocks
+==7047==    still reachable: 500,408 bytes in 396 blocks
+==7047==         suppressed: 0 bytes in 0 blocks
+==7047== Rerun with --leak-check=full to see details of leaked memory
+==7047== 
+==7047== For counts of detected and suppressed errors, rerun with: -v
+==7047== Use --track-origins=yes to see where uninitialised values come from
+==7047== ERROR SUMMARY: 23611 errors from 6 contexts (suppressed: 0 from 0)
