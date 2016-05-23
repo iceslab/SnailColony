@@ -12,15 +12,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b95b3f9-1fcf-48a8-a85a-f3e6bcef19df" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/headers/Synchronize.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Synchronize.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Compile/SnailColony" afterPath="$PROJECT_DIR$/Compile/SnailColony" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/SnailColony.iml" afterPath="$PROJECT_DIR$/.idea/SnailColony.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Compile/valgrind_prep.log" afterPath="$PROJECT_DIR$/Compile/valgrind_prep.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/headers/Snail.h" afterPath="$PROJECT_DIR$/headers/Snail.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Map.cpp" afterPath="$PROJECT_DIR$/src/Map.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Compile/snail 3" afterPath="$PROJECT_DIR$/Compile/snail 3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Compile/snail 4" afterPath="$PROJECT_DIR$/Compile/snail 4" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Compile/snail 5" afterPath="$PROJECT_DIR$/Compile/snail 5" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Grass.cpp" afterPath="$PROJECT_DIR$/src/Grass.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Snail.cpp" afterPath="$PROJECT_DIR$/src/Snail.cpp" />
     </list>
     <ignored path="SnailColony.iws" />
@@ -54,12 +50,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Grass.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Grass.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Grass.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="17" column="35" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="35" />
-              <folding />
+            <state relative-caret-position="210">
+              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+              <folding>
+                <element signature="e#39#57#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -96,16 +94,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Snail.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Snail.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Snail.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-422">
-              <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+            <state relative-caret-position="208">
+              <caret line="86" column="57" selection-start-line="86" selection-start-column="57" selection-end-line="86" selection-end-column="57" />
               <folding>
                 <element signature="e#72#90#0" expanded="true" />
-                <element signature="e#616#676#0" expanded="false" />
-                <element signature="e#678#730#0" expanded="false" />
-                <element signature="e#732#795#0" expanded="false" />
+                <element signature="e#620#680#0" expanded="false" />
+                <element signature="e#682#734#0" expanded="false" />
+                <element signature="e#736#799#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -126,8 +124,18 @@
       <file leaf-file-name="Map.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Map.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
+            <state relative-caret-position="1368">
               <caret line="145" column="24" selection-start-line="145" selection-start-column="24" selection-end-line="145" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tile.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Tile.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-348">
+              <caret line="49" column="28" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -153,9 +161,9 @@
         <option value="$PROJECT_DIR$/src/SnailColony.cpp" />
         <option value="$PROJECT_DIR$/headers/SnailColony.h" />
         <option value="$PROJECT_DIR$/src/main.cpp" />
-        <option value="$PROJECT_DIR$/src/Grass.cpp" />
         <option value="$PROJECT_DIR$/src/Map.cpp" />
         <option value="$PROJECT_DIR$/src/Snail.cpp" />
+        <option value="$PROJECT_DIR$/src/Grass.cpp" />
       </list>
     </option>
   </component>
@@ -427,7 +435,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20595238" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35249457" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35249457" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286334" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -471,12 +479,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/Grass.cpp</url>
-          <line>34</line>
+          <line>36</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/Snail.cpp</url>
-          <line>95</line>
+          <line>96</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -486,7 +494,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/Snail.cpp</url>
-          <line>113</line>
+          <line>114</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -542,9 +550,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#72#90#0" expanded="true" />
-            <element signature="e#616#676#0" expanded="false" />
-            <element signature="e#678#730#0" expanded="false" />
-            <element signature="e#732#795#0" expanded="false" />
+            <element signature="e#620#680#0" expanded="false" />
+            <element signature="e#682#734#0" expanded="false" />
+            <element signature="e#736#799#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -553,7 +561,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="72" column="29" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
-          <folding />
+          <folding>
+            <element signature="e#39#57#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -624,9 +634,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#72#90#0" expanded="true" />
-            <element signature="e#616#676#0" expanded="false" />
-            <element signature="e#678#730#0" expanded="false" />
-            <element signature="e#732#795#0" expanded="false" />
+            <element signature="e#620#680#0" expanded="false" />
+            <element signature="e#682#734#0" expanded="false" />
+            <element signature="e#736#799#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -635,7 +645,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="72" column="29" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
-          <folding />
+          <folding>
+            <element signature="e#39#57#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -705,9 +717,9 @@
           <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
           <folding>
             <element signature="e#72#90#0" expanded="true" />
-            <element signature="e#616#676#0" expanded="false" />
-            <element signature="e#678#730#0" expanded="false" />
-            <element signature="e#732#795#0" expanded="false" />
+            <element signature="e#620#680#0" expanded="false" />
+            <element signature="e#682#734#0" expanded="false" />
+            <element signature="e#736#799#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -833,22 +845,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/headers/Tile.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tile.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="49" column="28" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/headers/SnailColony.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
@@ -863,14 +859,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
           <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Grass.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="35" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -895,14 +883,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Map.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="145" column="24" selection-start-line="145" selection-start-column="24" selection-end-line="145" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/headers/Snail.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -911,15 +891,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/headers/Tile.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Snail.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-422">
-          <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+        <state relative-caret-position="208">
+          <caret line="86" column="57" selection-start-line="86" selection-start-column="57" selection-end-line="86" selection-end-column="57" />
           <folding>
             <element signature="e#72#90#0" expanded="true" />
-            <element signature="e#616#676#0" expanded="false" />
-            <element signature="e#678#730#0" expanded="false" />
-            <element signature="e#732#795#0" expanded="false" />
+            <element signature="e#620#680#0" expanded="false" />
+            <element signature="e#682#734#0" expanded="false" />
+            <element signature="e#736#799#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tile.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-348">
+          <caret line="49" column="28" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Map.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1368">
+          <caret line="145" column="24" selection-start-line="145" selection-start-column="24" selection-end-line="145" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Grass.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding>
+            <element signature="e#39#57#0" expanded="true" />
           </folding>
         </state>
       </provider>

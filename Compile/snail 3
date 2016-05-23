@@ -1,3 +1,50 @@
 state: 1, hunger: 0
-posX: 68, posY: 25
-posX: 68, posY: 26, height: 62, width: 111
+posX: 59, posY: 29
+posX: 58, posY: 30, width: 111, height: 62
+posX: 58, posY: 30, width: 111, height: 62
+
+state: 1, hunger: 0
+posX: 58, posY: 30
+posX: 59, posY: 29, width: 111, height: 62
+posX: 59, posY: 29, width: 111, height: 62
+
+state: 1, hunger: 0
+posX: 16, posY: 44
+posX: 15, posY: 44, width: 111, height: 62
+posX: 15, posY: 44, width: 111, height: 62
+
+state: 1, hunger: 0
+posX: 23, posY: 4
+posX: 24, posY: 4, width: 111, height: 62
+posX: 24, posY: 4, width: 111, height: 62
+
+state: 1, hunger: 0
+posX: 40, posY: 22
+posX: 40, posY: 21, width: 111, height: 62
+posX: 40, posY: 21, width: 111, height: 62
+
+state: 1, hunger: 0
+posX: 83, posY: 54
+posX: 82, posY: 54, width: 111, height: 62
+posX: 82, posY: 54, width: 111, height: 62
+
+state: 1, hunger: 0
+posX: 50, posY: 15
+posX: 51, posY: 15, width: 111, height: 62
+posX: 51, posY: 15, width: 111, height: 62
+
+state: 1, hunger: 0
+posX: 27, posY: 25
+posX: 26, posY: 25, width: 111, height: 62
+posX: 26, posY: 25, width: 111, height: 62
+
+state: 1, hunger: 0
+posX: 26, posY: 25
+posX: 26, posY: 24, width: 111, height: 62
+posX: 26, posY: 24, width: 111, height: 62
+
+state: 1, hunger: 0
+posX: 3, posY: 6
+posX: 4, posY: 5, width: 111, height: 62
+posX: 4, posY: 5, width: 111, height: 62
+

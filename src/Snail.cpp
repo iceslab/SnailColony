@@ -15,8 +15,8 @@ const int Snail::maxHunger = 10;
 Snail::Snail(ColorPair color, Grass* grass, int x, int y) :
 		color(color), hunger(minHunger), state(ALIVE), grass(grass)
 {
-	posX = x % grass->getWidth();
-	posY = y % grass->getHeight();
+	posX = (x % grass->getWidth());
+	posY = (y % grass->getHeight());
 }
 
 Snail::~Snail()
@@ -84,14 +84,15 @@ bool Snail::makeRandomMove()
 			posY += deltaY;
 			ofs << "posX: " << posX
 			    << ", posY: " << posY
+		    	<< ", width: " << (grass->getWidth() - 1)
 				<< ", height: " << (grass->getHeight() - 1)
-		    	<< ", width: " << (grass->getWidth() - 1);
+				<< endl;
 			posX %= grass->getWidth();
 			posY %= grass->getHeight();
 			ofs << "posX: " << posX
 			<< ", posY: " << posY
-			<< ", height: " << (grass->getHeight() - 1)
 			<< ", width: " << (grass->getWidth() - 1)
+			<< ", height: " << (grass->getHeight() - 1)
 			<< endl << endl;
 			eat();
 			retVal = true;

@@ -2,10 +2,11 @@
 // Created by user on 11.05.16.
 //
 
+#include <fstream>
 #include "../headers/Grass.h"
 
 Grass::Grass(int height, int width, int startingTileValue) :
-    height(height), width(width)
+    height(height), width(width), tiles()
 {
     if(startingTileValue > 9)
     {
@@ -13,18 +14,19 @@ Grass::Grass(int height, int width, int startingTileValue) :
     }
 
     tiles.resize(this->height);
-    for(auto& tilesRow : tiles)
+    for(unsigned row = 0; row < this->height; row++)
     {
-        tilesRow.resize(this->width);
-        for(auto& tile : tilesRow )
+
+        tiles[row] = vector<Tile>(this->width);
+        for(unsigned column = 0; column < this->width; column++)
         {
             if(startingTileValue < 0)
             {
-                tile.setValue(rand() % 10);
+                tiles[row][column].setValue(rand() % 10);
             }
             else
             {
-                tile.setValue(startingTileValue);
+                tiles[row][column].setValue(startingTileValue);
             }
         }
     }
@@ -70,6 +72,11 @@ const Tile& Grass::getTile(int posX, int posY) const
 
 Tile& Grass::getTile(int posX, int posY)
 {
+    ofstream ofs("tile.txt", ios::app | ios::out);
+    ofs << "posX: " << posX
+     << ", size: " << tiles.size() << endl
+     << "posY: " << posY
+     << ", size: " << tiles[posX].size() << endl << endl;
     return tiles[posX][posY];
 }
 
