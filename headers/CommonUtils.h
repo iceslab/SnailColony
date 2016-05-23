@@ -16,7 +16,7 @@ class CommonUtils
 {
 public:
 	static bool initLibrary();
-	static bool initWindows(Map &map, StatusBar &statusBar);
+	static bool initWindows(Map* &map, StatusBar* &statusBar);
 protected:
 private:
 	static bool initColors();

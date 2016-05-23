@@ -31,6 +31,8 @@ public:
 	void eat();
 	bool makeRandomMove();
 
+	void start();
+
 protected:
 private:
 	int posX;

@@ -5,17 +5,18 @@
  *      Author: user
  */
 
+#include <fstream>
+#include <sstream>
 #include "../headers/Snail.h"
 
 const int Snail::minHunger = 0;
 const int Snail::maxHunger = 10;
 
 Snail::Snail(ColorPair color, Grass* grass, int x, int y) :
-		posX(x), posY(y), color(color), hunger(minHunger), state(ALIVE), grass(grass)
+		color(color), hunger(minHunger), state(ALIVE), grass(grass)
 {
-	pthread_create(&snailThread, NULL, Snail::snailThreadFn, this);
-
-
+	posX = x % grass->getWidth();
+	posY = y % grass->getHeight();
 }
 
 Snail::~Snail()
@@ -65,6 +66,14 @@ void Snail::eat()
 
 bool Snail::makeRandomMove()
 {
+	stringstream ss;
+	ss << "snail "<< static_cast<int>(color);
+	ofstream ofs(ss.str(), ios::app | ios::out);
+	ofs << "state: " << state
+		<< ", hunger: " << hunger
+		<< "\nposX: " << posX
+		<< ", posY: " << posY
+		<< endl;
 	bool retVal = false;
 	if(state == ALIVE)
 	{
@@ -75,6 +84,17 @@ bool Snail::makeRandomMove()
 			drawMove(deltaX, deltaY);
 			posX += deltaX;
 			posY += deltaY;
+			ofs << "posX: " << posX
+			    << ", posY: " << posY
+				<< ", height: " << (grass->getHeight() - 1)
+		    	<< ", width: " << (grass->getWidth() - 1);
+			posX %= grass->getWidth();
+			posY %= grass->getHeight();
+			ofs << "posX: " << posX
+			<< ", posY: " << posY
+			<< ", height: " << (grass->getHeight() - 1)
+			<< ", width: " << (grass->getWidth() - 1)
+			<< endl << endl;
 			eat();
 			retVal = true;
 		}
@@ -84,6 +104,11 @@ bool Snail::makeRandomMove()
 		}
 	}
 	return retVal;
+}
+
+void Snail::start()
+{
+	pthread_create(&snailThread, NULL, Snail::snailThreadFn, this);
 }
 
 unsigned Snail::increaseHunger(unsigned amount)
@@ -137,7 +162,7 @@ void Snail::drawMove(int& deltaX, int& deltaY)
 	{
 		deltaX = 1;
 	}
-	if(posX == grass->getWidth() && deltaX > 0)
+	if(posX == (grass->getWidth() - 1) && deltaX > 0)
 	{
 		deltaX = -1;
 	}
@@ -145,7 +170,7 @@ void Snail::drawMove(int& deltaX, int& deltaY)
 	{
 		deltaY = 1;
 	}
-	if(posY == grass->getWidth() && deltaY > 0)
+	if(posY == (grass->getHeight() - 1) && deltaY > 0)
 	{
 		deltaY = -1;
 	}

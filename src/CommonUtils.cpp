@@ -23,7 +23,7 @@ bool CommonUtils::initLibrary()
 	return retVal;
 }
 
-bool CommonUtils::initWindows(Map &map, StatusBar &statusBar)
+bool CommonUtils::initWindows(Map* &map, StatusBar* &statusBar)
 {
 	bool retVal = false;
 
@@ -43,13 +43,13 @@ bool CommonUtils::initWindows(Map &map, StatusBar &statusBar)
 
 		if(height > 0)
 		{
-			map = Map(height, width, startX, startY);
+			map = new Map(height, width, startX, startY);
 			refresh();
 
 			startY += height;
 			height = statusBarHeight;
 
-			statusBar = StatusBar(height, width, startX, startY);
+			statusBar = new StatusBar(height, width, startX, startY);
 			refresh();
 
 			retVal = true;

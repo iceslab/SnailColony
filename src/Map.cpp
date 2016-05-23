@@ -19,8 +19,8 @@ Map::Map(int height, int width, int xPos, int yPos) : Map()
 	this->height = height;
 	this->width = width;
 	mapWindow = newwin(height, width, yPos, xPos);
-	grass = Grass(height - 2, width - 2);
-	colony.setGrass(&grass);
+//	grass = Grass(height - 2, width - 2);
+//	colony.setGrass(&grass);
 
 	wborder(mapWindow, '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0');
 	wrefresh(mapWindow);
@@ -28,7 +28,7 @@ Map::Map(int height, int width, int xPos, int yPos) : Map()
 
 
 //	refresh();
-	printGrass();
+//	printGrass();
 //	mvprintw(1, 1, "%d, %d", this->height, this->width);
 }
 
@@ -39,7 +39,7 @@ Map::Map(Map&& map)
 	mapWindow = map.mapWindow;
 	grass = move(map.grass);
 	colony = move(colony);
-	colony.setGrass(&grass);
+//	colony.setGrass(&grass);
 
 	map.height = 0;
 	map.width = 0;
@@ -53,7 +53,7 @@ Map& Map::operator= (Map&& map)
 	mapWindow = map.mapWindow;
 	grass = move(map.grass);
 	colony = move(map.colony);
-	colony.setGrass(&grass);
+//	colony.setGrass(&grass);
 
 	map.height = 0;
 	map.width = 0;
@@ -81,14 +81,24 @@ int Map::getWidth() const
 	return width;
 }
 
-SnailColony& Map::getColony()
+SnailColony* Map::getColony()
 {
 	return colony;
 }
 
+void Map::setColony(SnailColony* colony)
+{
+	this->colony = colony;
+}
+
+void Map::setGrass(Grass* grass)
+{
+	this->grass = grass;
+}
+
 void Map::growMap()
 {
-	grass.growGrass();
+	grass->growGrass();
 
 //	printGrass();
 //	printColony();
@@ -104,14 +114,14 @@ void Map::reprint()
 
 void Map::printGrass()
 {
-	int grassHeight = grass.getHeight();
-	int grassWidth = grass.getWidth();
+	int grassHeight = grass->getHeight();
+	int grassWidth = grass->getWidth();
 	for(int row = 0; row < grassHeight; row++)
 	{
 		for(int column = 0; column < grassWidth; column++ )
 		{
 			ColorPair color;
-			char value = grass.getTile(row, column).getValueAsChar(color);
+			char value = grass->getTile(row, column).getValueAsChar(color);
 			wattron(mapWindow, COLOR_PAIR(color));
 			mvwprintw(mapWindow, row + 1, column + 1, "%c", value);
 			wattroff(mapWindow, COLOR_PAIR(color));
@@ -124,15 +134,15 @@ void Map::printGrass()
 
 void Map::printColony()
 {
-	unsigned snailsNumber = colony.getColonySize();
+	unsigned snailsNumber = colony->getColonySize();
 
 	for(unsigned i = 0; i < snailsNumber; i++)
 	{
-		ColorPair color = colony.getSnail(i).getColor();
+		ColorPair color = colony->getSnail(i)->getColor();
 		wattron(mapWindow, COLOR_PAIR(color));
 		mvwprintw(mapWindow,
-				  colony.getSnail(i).getPosX() + 1,
-				  colony.getSnail(i).getPosY() + 1,
+				  colony->getSnail(i)->getPosX() + 1,
+				  colony->getSnail(i)->getPosY() + 1,
 				  "X");
 		wattroff(mapWindow, COLOR_PAIR(color));
 	}

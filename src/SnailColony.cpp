@@ -6,8 +6,9 @@
 
 const unsigned SnailColony::maxColonySize = LAST_SNAIL_COLOR - FIRST_SNAIL_COLOR + 1;
 
-SnailColony::SnailColony(unsigned startingSize) : snails(), grass(nullptr)
+SnailColony::SnailColony(unsigned startingSize) : snails(nullptr), grass(nullptr), snailsCount(0)
 {
+    snails = new Snail*[maxColonySize];
     if(startingSize > maxColonySize)
     {
         startingSize = maxColonySize;
@@ -19,15 +20,26 @@ SnailColony::SnailColony(unsigned startingSize) : snails(), grass(nullptr)
     }
 }
 
+SnailColony::~SnailColony()
+{
+    if(nullptr != snails)
+    {
+        delete[] snails;
+        snails = nullptr;
+    }
+}
+
 SnailColony::SnailColony(SnailColony&& colony)
 {
-    snails = move(colony.snails);
+    snails = colony.snails;
+//    snails = move(colony.snails);
     grass = colony.grass;
 }
 
 SnailColony& SnailColony::operator= (SnailColony&& colony)
 {
-    snails = move(colony.snails);
+    snails = colony.snails;
+//    snails = move(colony.snails);
     grass = colony.grass;
 
     return *this;
@@ -35,34 +47,44 @@ SnailColony& SnailColony::operator= (SnailColony&& colony)
 
 void SnailColony::add()
 {
-    if(nullptr != grass && snails.size() < maxColonySize)
+    if(nullptr != grass && snailsCount < maxColonySize)
     {
-        snails.emplace_back(static_cast<ColorPair>(snails.size() + FIRST_SNAIL_COLOR),
-                            grass,
-                            rand() % grass->getWidth(),
-                            rand() % grass->getHeight());
+//        snails.emplace_back(static_cast<ColorPair>(snails.size() + FIRST_SNAIL_COLOR),
+//                            grass,
+//                            rand() % grass->getWidth(),
+//                            rand() % grass->getHeight());
+        Snail* snail = new Snail(static_cast<ColorPair>(snailsCount + FIRST_SNAIL_COLOR),
+                                 grass,
+                                 rand() % grass->getWidth(),
+                                 rand() % grass->getHeight());
+        snails[snailsCount] = snail;
+//        snails.push_back(snail);
+        snails[snailsCount++]->start();
     }
 }
 
 void SnailColony::remove()
 {
-    if(snails.size() > 0)
+    if(snailsCount > 0)
     {
-        snails.pop_back();
+        delete snails[--snailsCount];
+        snails[snailsCount] = nullptr;
+//        snails.back() = nullptr;
+//        snails.pop_back();
     }
 }
 
-const vector<Snail>& SnailColony::getSnails() const
+Snail** SnailColony::getSnails() const
 {
     return snails;
 }
 
 unsigned SnailColony::getColonySize() const
 {
-    return snails.size();
+    return snailsCount;
 }
 
-const Snail& SnailColony::getSnail(unsigned index) const
+const Snail* SnailColony::getSnail(unsigned index) const
 {
     return snails[index];
 }

@@ -23,7 +23,10 @@ public:
 	int getHeight() const;
 	int getWidth() const;
 
-	SnailColony& getColony();
+	SnailColony* getColony();
+
+	void setColony(SnailColony* colony);
+	void setGrass(Grass* grass);
 
 	void growMap();
 	void reprint();
@@ -33,8 +36,8 @@ private:
 	int height;
 	int width;
 	WINDOW* mapWindow;
-	Grass grass;
-	SnailColony colony;
+	Grass* grass;
+	SnailColony* colony;
 
 	void printGrass();
 	void printColony();

@@ -10,7 +10,7 @@
 const int Tile::minTileValue = 0;
 const int Tile::maxTileValue = 9;
 
-Tile::Tile(int value)
+Tile::Tile(int value) : value(0)
 {
 	if(value <= maxTileValue && value > 0)
 	{

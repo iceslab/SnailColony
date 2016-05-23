@@ -10,19 +10,21 @@
 class SnailColony {
 public:
     SnailColony(unsigned startingSize = 0);
+    ~SnailColony();
     SnailColony(SnailColony&& colony);
     SnailColony& operator= (SnailColony&& colony);
     void add();
     void remove();
 
-    const vector<Snail>& getSnails() const;
+    Snail** getSnails() const;
     unsigned getColonySize() const;
-    const Snail& getSnail(unsigned index) const;
+    const Snail* getSnail(unsigned index) const;
 
     void setGrass(Grass* grass);
 private:
     static const unsigned maxColonySize;
-    vector<Snail> snails;
+    Snail** snails;
+    unsigned snailsCount;
     Grass* grass;
 
 };
