@@ -12,19 +12,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b95b3f9-1fcf-48a8-a85a-f3e6bcef19df" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/headers/Synchronize.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Synchronize.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Compile/SnailColony" afterPath="$PROJECT_DIR$/Compile/SnailColony" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/SnailColony.iml" afterPath="$PROJECT_DIR$/.idea/SnailColony.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Compile/valgrind.log" afterPath="$PROJECT_DIR$/Compile/valgrind.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/headers/CommonUtils.h" afterPath="$PROJECT_DIR$/headers/CommonUtils.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/headers/Map.h" afterPath="$PROJECT_DIR$/headers/Map.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Compile/valgrind_prep.log" afterPath="$PROJECT_DIR$/Compile/valgrind_prep.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/headers/Snail.h" afterPath="$PROJECT_DIR$/headers/Snail.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/headers/SnailColony.h" afterPath="$PROJECT_DIR$/headers/SnailColony.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CommonUtils.cpp" afterPath="$PROJECT_DIR$/src/CommonUtils.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Map.cpp" afterPath="$PROJECT_DIR$/src/Map.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Snail.cpp" afterPath="$PROJECT_DIR$/src/Snail.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SnailColony.cpp" afterPath="$PROJECT_DIR$/src/SnailColony.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tile.cpp" afterPath="$PROJECT_DIR$/src/Tile.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.cpp" afterPath="$PROJECT_DIR$/src/main.cpp" />
     </list>
     <ignored path="SnailColony.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,7 +69,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="336">
               <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
-              <folding />
+              <folding>
+                <marker date="1463992037065" expanded="true" signature="157:623" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -90,11 +89,9 @@
       <file leaf-file-name="Snail.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/headers/Snail.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="17" />
-              <folding>
-                <element signature="e#121#153#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="108">
+              <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="35" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -102,17 +99,13 @@
       <file leaf-file-name="Snail.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Snail.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="101" column="9" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
+            <state relative-caret-position="-422">
+              <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
               <folding>
                 <element signature="e#72#90#0" expanded="true" />
-                <element signature="e#419#463#0" expanded="false" />
-                <element signature="e#465#518#0" expanded="false" />
-                <element signature="e#520#564#0" expanded="false" />
-                <element signature="e#566#619#0" expanded="false" />
-                <element signature="e#621#681#0" expanded="false" />
-                <element signature="e#683#735#0" expanded="false" />
-                <element signature="e#737#800#0" expanded="false" />
+                <element signature="e#616#676#0" expanded="false" />
+                <element signature="e#678#730#0" expanded="false" />
+                <element signature="e#732#795#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -123,7 +116,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="282">
               <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="28" selection-end-column="32" />
-              <folding />
+              <folding>
+                <marker date="1463990325729" expanded="true" signature="217:673" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -131,8 +126,8 @@
       <file leaf-file-name="Map.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Map.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="135" column="1" selection-start-line="135" selection-start-column="1" selection-end-line="135" selection-end-column="1" />
+            <state relative-caret-position="336">
+              <caret line="145" column="24" selection-start-line="145" selection-start-column="24" selection-end-line="145" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -154,12 +149,12 @@
         <option value="$PROJECT_DIR$/src/CommonUtils.cpp" />
         <option value="$PROJECT_DIR$/headers/Snail.h" />
         <option value="$PROJECT_DIR$/headers/Map.h" />
-        <option value="$PROJECT_DIR$/src/Map.cpp" />
         <option value="$PROJECT_DIR$/src/Tile.cpp" />
         <option value="$PROJECT_DIR$/src/SnailColony.cpp" />
         <option value="$PROJECT_DIR$/headers/SnailColony.h" />
         <option value="$PROJECT_DIR$/src/main.cpp" />
         <option value="$PROJECT_DIR$/src/Grass.cpp" />
+        <option value="$PROJECT_DIR$/src/Map.cpp" />
         <option value="$PROJECT_DIR$/src/Snail.cpp" />
       </list>
     </option>
@@ -481,22 +476,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/Snail.cpp</url>
-          <line>97</line>
+          <line>95</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/Snail.cpp</url>
-          <line>63</line>
+          <line>61</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/Snail.cpp</url>
-          <line>115</line>
+          <line>113</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/Snail.cpp</url>
-          <line>77</line>
+          <line>75</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -529,9 +524,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#121#153#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -539,9 +532,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding>
-            <element signature="e#121#153#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -551,13 +542,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#72#90#0" expanded="true" />
-            <element signature="e#419#463#0" expanded="false" />
-            <element signature="e#465#518#0" expanded="false" />
-            <element signature="e#520#564#0" expanded="false" />
-            <element signature="e#566#619#0" expanded="false" />
-            <element signature="e#621#681#0" expanded="false" />
-            <element signature="e#683#735#0" expanded="false" />
-            <element signature="e#737#800#0" expanded="false" />
+            <element signature="e#616#676#0" expanded="false" />
+            <element signature="e#678#730#0" expanded="false" />
+            <element signature="e#732#795#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -627,9 +614,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding>
-            <element signature="e#121#153#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -639,13 +624,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#72#90#0" expanded="true" />
-            <element signature="e#419#463#0" expanded="false" />
-            <element signature="e#465#518#0" expanded="false" />
-            <element signature="e#520#564#0" expanded="false" />
-            <element signature="e#566#619#0" expanded="false" />
-            <element signature="e#621#681#0" expanded="false" />
-            <element signature="e#683#735#0" expanded="false" />
-            <element signature="e#737#800#0" expanded="false" />
+            <element signature="e#616#676#0" expanded="false" />
+            <element signature="e#678#730#0" expanded="false" />
+            <element signature="e#732#795#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -724,13 +705,9 @@
           <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
           <folding>
             <element signature="e#72#90#0" expanded="true" />
-            <element signature="e#419#463#0" expanded="false" />
-            <element signature="e#465#518#0" expanded="false" />
-            <element signature="e#520#564#0" expanded="false" />
-            <element signature="e#566#619#0" expanded="false" />
-            <element signature="e#621#681#0" expanded="false" />
-            <element signature="e#683#735#0" expanded="false" />
-            <element signature="e#737#800#0" expanded="false" />
+            <element signature="e#616#676#0" expanded="false" />
+            <element signature="e#678#730#0" expanded="false" />
+            <element signature="e#732#795#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -739,9 +716,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="e#121#153#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -874,21 +849,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/headers/Snail.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="17" />
-          <folding>
-            <element signature="e#121#153#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/headers/SnailColony.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
-          <folding />
+          <folding>
+            <marker date="1463992037065" expanded="true" signature="157:623" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -918,35 +885,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Map.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="135" column="1" selection-start-line="135" selection-start-column="1" selection-end-line="135" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/headers/Map.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
           <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="28" selection-end-column="32" />
+          <folding>
+            <marker date="1463990325729" expanded="true" signature="217:673" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Map.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="145" column="24" selection-start-line="145" selection-start-column="24" selection-end-line="145" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/headers/Snail.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Snail.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="101" column="9" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
+        <state relative-caret-position="-422">
+          <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
           <folding>
             <element signature="e#72#90#0" expanded="true" />
-            <element signature="e#419#463#0" expanded="false" />
-            <element signature="e#465#518#0" expanded="false" />
-            <element signature="e#520#564#0" expanded="false" />
-            <element signature="e#566#619#0" expanded="false" />
-            <element signature="e#621#681#0" expanded="false" />
-            <element signature="e#683#735#0" expanded="false" />
-            <element signature="e#737#800#0" expanded="false" />
+            <element signature="e#616#676#0" expanded="false" />
+            <element signature="e#678#730#0" expanded="false" />
+            <element signature="e#732#795#0" expanded="false" />
           </folding>
         </state>
       </provider>

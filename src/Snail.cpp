@@ -24,24 +24,22 @@ Snail::~Snail()
 
 }
 
-int Snail::getPosX() const
+void Snail::setPos(int x, int y)
 {
-	return posX;
+	posX = x;
+	posY = y;
 }
 
-void Snail::setPosX(int posX)
+void Snail::changePos(int dx, int dy)
 {
-	this->posX = posX;
+	posX += dx;
+	posY += dy;
 }
 
-int Snail::getPosY() const
+void Snail::getPos(int &x, int &y) const
 {
-	return posY;
-}
-
-void Snail::setPosY(int posY)
-{
-	this->posY = posY;
+	x = posX;
+	y = posY;
 }
 
 void Snail::setGrass(Grass* grass)

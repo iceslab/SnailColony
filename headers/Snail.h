@@ -15,15 +15,16 @@ class Snail
 {
 public:
 	Snail(ColorPair color, Grass* grass, int x, int y);
+	void init();
 	virtual ~Snail();
 
-	int getPosX() const;
-	void setPosX(int posX);
-
-	int getPosY() const;
-	void setPosY(int posY);
+	void setPos(int x, int y);
+	void changePos(int dx, int dy);
+	void getPos(int &x, int &y) const;
 
 	void setGrass(Grass* tiles);
+	bool getStop() const;
+	void setStop(bool val);
 
 	ColorPair getColor() const;
 	void setColor(ColorPair color);
@@ -41,8 +42,10 @@ private:
 	SnailState state;
 	Grass* grass;
 	int hunger;
+	bool stop;
 
 	pthread_t snailThread;
+	mutable pthread_mutex_t snailMutex;
 
 	static const int minHunger;
 	static const int maxHunger;

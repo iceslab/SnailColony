@@ -18,7 +18,7 @@ set(SOURCE_FILES
     src/Map.cpp
     src/Snail.cpp
     src/StatusBar.cpp
-    src/Tile.cpp src/SnailColony.cpp headers/SnailColony.h src/Grass.cpp headers/Grass.h)
+    src/Tile.cpp src/SnailColony.cpp headers/SnailColony.h src/Grass.cpp headers/Grass.h src/Synchronize.cpp headers/Synchronize.h)
 set(EXECUTABLE_OUTPUT_PATH ${dir} CACHE PATH "Build directory" FORCE)
 set(LIBRARY_OUTPUT_PATH ${dir} CACHE PATH "Build directory" FORCE)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${dir})
