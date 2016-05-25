@@ -121,10 +121,19 @@ void Map::printGrass()
 		for(int column = 0; column < grassWidth; column++ )
 		{
 			ColorPair color;
-			char value = grass->getTile(row, column).getValueAsChar(color);
-			wattron(mapWindow, COLOR_PAIR(color));
-			mvwprintw(mapWindow, row + 1, column + 1, "%c", value);
-			wattroff(mapWindow, COLOR_PAIR(color));
+			try
+			{
+				char value = grass->getTile(column, row).getValueAsChar(color);
+				wattron(mapWindow, COLOR_PAIR(color));
+				mvwprintw(mapWindow, row + 1, column + 1, "%c", value);
+				wattroff(mapWindow, COLOR_PAIR(color));
+			}
+			catch(invalid_argument &e)
+			{
+				cout<< "row: " << row <<" / "<< grassHeight << ", column: "<< column << " / "<< grassWidth << endl;
+				cout << e.what() << endl;
+				getchar();
+			}
 		}
 	}
 //	refreshMap();
@@ -143,8 +152,8 @@ void Map::printColony()
 		int x = 0, y = 0;
 		colony->getSnail(i)->getPos(x, y);
 		mvwprintw(mapWindow,
-				  x + 1,
 				  y + 1,
+				  x + 1,
 				  "X");
 		wattroff(mapWindow, COLOR_PAIR(color));
 	}

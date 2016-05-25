@@ -12,6 +12,7 @@ class Grass
 {
 public:
     Grass(int height = 0, int width = 0, int startingTileValue = -1);
+    ~Grass();
     Grass(Grass&& grass);
     Grass& operator= (Grass&& grass);
 
@@ -25,7 +26,8 @@ public:
 private:
     int height;
     int width;
-    vector<vector<Tile>> tiles;
+    Tile** tiles;
+//    vector<vector<Tile>> tiles;
 };
 
 

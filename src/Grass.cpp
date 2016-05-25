@@ -3,21 +3,24 @@
 //
 
 #include <fstream>
+#include <sstream>
 #include "../headers/Grass.h"
 
 Grass::Grass(int height, int width, int startingTileValue) :
-    height(height), width(width), tiles()
+    height(height), width(width), tiles(nullptr)
 {
     if(startingTileValue > 9)
     {
         startingTileValue = 9;
     }
 
-    tiles.resize(this->height);
+    tiles = new Tile*[this->height];
+//    tiles.resize(this->height);
     for(unsigned row = 0; row < this->height; row++)
     {
 
-        tiles[row] = vector<Tile>(this->width);
+//        tiles[row] = vector<Tile>(this->width);
+        tiles[row] = new Tile[this->width]();
         for(unsigned column = 0; column < this->width; column++)
         {
             if(startingTileValue < 0)
@@ -29,6 +32,24 @@ Grass::Grass(int height, int width, int startingTileValue) :
                 tiles[row][column].setValue(startingTileValue);
             }
         }
+    }
+}
+
+Grass::~Grass()
+{
+    if(nullptr != tiles)
+    {
+        for(unsigned row = 0; row < this->height; row++)
+        {
+            if(nullptr != tiles[row])
+            {
+                delete [] tiles[row];
+                tiles[row] = nullptr;
+            }
+        }
+
+        delete[] tiles;
+        tiles = nullptr;
     }
 }
 
@@ -56,28 +77,46 @@ Grass& Grass::operator= (Grass&& grass)
 
 void Grass::growGrass()
 {
-    for(auto& tilesRow : tiles)
+    for(unsigned row = 0; row < this->height; row++)
     {
-        for(auto& tile : tilesRow)
+        for(unsigned column = 0; column < this->width; column++)
         {
-            tile.grow();
+            tiles[row][column].grow();
         }
     }
 }
 
 const Tile& Grass::getTile(int posX, int posY) const
 {
-    return tiles[posX][posY];
+    return tiles[posY][posX];
 }
 
 Tile& Grass::getTile(int posX, int posY)
 {
     ofstream ofs("tile.txt", ios::app | ios::out);
     ofs << "posX: " << posX
-     << ", size: " << tiles.size() << endl
-     << "posY: " << posY
-     << ", size: " << tiles[posX].size() << endl << endl;
-    return tiles[posX][posY];
+        << ", size: " << width - 1
+        << endl
+        << "posY: " << posY
+        << ", size: " << height - 1
+        << endl << endl;
+    if(posX >= width)
+    {
+        stringstream ss;
+        ss << "posX >= width, " << posX << " >= " << width << endl
+            << "height: "<<height << ", width: "<< width<<endl;
+        throw invalid_argument(ss.str());
+    }
+
+    if(posY >= height)
+    {
+        stringstream ss;
+        ss << "posY >= height" << posY << " >= " << height << endl
+          << "height: "<<height << ", width: "<< width<<endl;
+        throw invalid_argument(ss.str());
+    }
+
+    return tiles[posY][posX];
 }
 
 int Grass::getHeight() const

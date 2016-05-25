@@ -7,7 +7,7 @@ int main(int argc, char** argv)
 
 	if(CommonUtils::initLibrary())
 	{
-		getchar();
+//		getchar();
 		Map* map = nullptr;
 		Grass* grass = nullptr;
 		SnailColony* colony = nullptr;
@@ -23,7 +23,7 @@ int main(int argc, char** argv)
 //			mvprintw(1, 1, "%d, %d", map.getHeight(), map.getWidth());
 //			mvprintw(2, 1, "%d, %d", statusBar.getHeight(), statusBar.getWidth());
 //			wrefresh(stdscr);
-			for(int i = 0; i < 3; i++)
+			for(int i = 0; i < 5; i++)
 			{
 				map->getColony()->add();
 			}

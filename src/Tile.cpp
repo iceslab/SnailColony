@@ -12,23 +12,18 @@ const int Tile::maxTileValue = 9;
 
 Tile::Tile(int value) : value(0)
 {
-	if(value <= maxTileValue && value > 0)
-	{
-		this->value = value;
-	}
-	else
-	{
-		this->value = 0;
-	}
+	pthread_mutex_init(&tileMutex, nullptr);
+	setValue(value);
 }
 
 Tile::~Tile()
 {
-
+	pthread_mutex_destroy(&tileMutex);
 }
 
 unsigned Tile::grow(unsigned amount)
 {
+	pthread_mutex_lock(&tileMutex);
 	if(value < maxTileValue)
 	{
 		if(amount > maxTileValue - value)
@@ -41,12 +36,13 @@ unsigned Tile::grow(unsigned amount)
 			value += amount;
 		}
 	}
-
+	pthread_mutex_unlock(&tileMutex);
 	return amount;
 }
 
 unsigned Tile::shrink(unsigned amount)
 {
+	pthread_mutex_lock(&tileMutex);
 	if(value > minTileValue)
 	{
 		if(amount > minTileValue + value)
@@ -63,25 +59,32 @@ unsigned Tile::shrink(unsigned amount)
 	{
 		amount = 0;
 	}
-
+	pthread_mutex_unlock(&tileMutex);
 	return amount;
 }
 
 int Tile::getValue() const
 {
-	return value;
+	pthread_mutex_lock(&tileMutex);
+	int retVal = value;
+	pthread_mutex_unlock(&tileMutex);
+	return retVal;
 }
 
 char Tile::getValueAsChar(ColorPair &color) const
 {
+	pthread_mutex_lock(&tileMutex);
+	int retVal = value;
 	color = GREEN;
 	if(value == 0)
 		color = BROWN;
-	return static_cast<char>(value + '0');
+	pthread_mutex_unlock(&tileMutex);
+	return static_cast<char>(retVal + '0');
 }
 
 void Tile::setValue(int value)
 {
+	pthread_mutex_lock(&tileMutex);
 	if(value <= 9 && value >= 0)
 	{
 		this->value = value;
@@ -90,5 +93,6 @@ void Tile::setValue(int value)
 	{
 		this->value = 0;
 	}
+	pthread_mutex_unlock(&tileMutex);
 }
 

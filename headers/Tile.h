@@ -27,6 +27,7 @@ private:
 	int value;
 	static const int minTileValue;
 	static const int maxTileValue;
+	mutable pthread_mutex_t tileMutex;
 };
 
 #endif /* HEADERS_TILE_H_ */
