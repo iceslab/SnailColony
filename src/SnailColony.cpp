@@ -89,6 +89,11 @@ const Snail* SnailColony::getSnail(unsigned index) const
     return snails[index];
 }
 
+Snail* SnailColony::getSnail(unsigned index)
+{
+    return snails[index];
+}
+
 void SnailColony::setGrass(Grass* grass)
 {
     this->grass = grass;

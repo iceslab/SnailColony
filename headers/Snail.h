@@ -26,6 +26,9 @@ public:
 	bool getStop() const;
 	void setStop(bool val);
 
+	void setState(SnailState state);
+	SnailState getState() const;
+
 	ColorPair getColor() const;
 	void setColor(ColorPair color);
 

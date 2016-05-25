@@ -15,31 +15,54 @@ const int Snail::maxHunger = 10;
 Snail::Snail(ColorPair color, Grass* grass, int x, int y) :
 		color(color), hunger(minHunger), state(ALIVE), grass(grass)
 {
+	pthread_mutex_init(&snailMutex, nullptr);
 	posX = (x % grass->getWidth());
 	posY = (y % grass->getHeight());
+
 }
 
 Snail::~Snail()
 {
-
+	setState(DEAD);
 }
 
 void Snail::setPos(int x, int y)
 {
+	pthread_mutex_lock(&snailMutex);
 	posX = x;
 	posY = y;
+	pthread_mutex_unlock(&snailMutex);
 }
 
 void Snail::changePos(int dx, int dy)
 {
+	pthread_mutex_lock(&snailMutex);
 	posX += dx;
 	posY += dy;
+	pthread_mutex_unlock(&snailMutex);
 }
 
 void Snail::getPos(int &x, int &y) const
 {
+	pthread_mutex_lock(&snailMutex);
 	x = posX;
 	y = posY;
+	pthread_mutex_unlock(&snailMutex);
+}
+
+void Snail::setState(SnailState state)
+{
+	pthread_mutex_lock(&snailMutex);
+	this->state = state;
+	pthread_mutex_unlock(&snailMutex);
+}
+
+SnailState Snail::getState() const
+{
+	pthread_mutex_lock(&snailMutex);
+	SnailState retVal = state;
+	pthread_mutex_unlock(&snailMutex);
+	return retVal;
 }
 
 void Snail::setGrass(Grass* grass)
@@ -72,14 +95,13 @@ bool Snail::makeRandomMove()
 			int deltaX = 0;
 			int deltaY = 0;
 			drawMove(deltaX, deltaY);
-			posX += deltaX;
-			posY += deltaY;
+			changePos(deltaX, deltaY);
 			eat();
 			retVal = true;
 		}
 		else
 		{
-			state = DEAD;
+			setState(DEAD);
 		}
 	}
 	return retVal;

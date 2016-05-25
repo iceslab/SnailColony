@@ -19,10 +19,13 @@ public:
     Snail** getSnails() const;
     unsigned getColonySize() const;
     const Snail* getSnail(unsigned index) const;
+    Snail* getSnail(unsigned index);
 
     void setGrass(Grass* grass);
 private:
     static const unsigned maxColonySize;
+
+    // TODO: zamienic na liste
     Snail** snails;
     unsigned snailsCount;
     Grass* grass;
