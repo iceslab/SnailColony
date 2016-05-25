@@ -93,13 +93,13 @@ const Tile& Grass::getTile(int posX, int posY) const
 
 Tile& Grass::getTile(int posX, int posY)
 {
-    ofstream ofs("tile.txt", ios::app | ios::out);
-    ofs << "posX: " << posX
-        << ", size: " << width - 1
-        << endl
-        << "posY: " << posY
-        << ", size: " << height - 1
-        << endl << endl;
+//    ofstream ofs("tile.txt", ios::app | ios::out);
+//    ofs << "posX: " << posX
+//        << ", size: " << width - 1
+//        << endl
+//        << "posY: " << posY
+//        << ", size: " << height - 1
+//        << endl << endl;
     if(posX >= width)
     {
         stringstream ss;

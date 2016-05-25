@@ -64,14 +64,6 @@ void Snail::eat()
 
 bool Snail::makeRandomMove()
 {
-	stringstream ss;
-	ss << "snail "<< static_cast<int>(color);
-	ofstream ofs(ss.str(), ios::app | ios::out);
-	ofs << "state: " << state
-		<< ", hunger: " << hunger
-		<< "\nposX: " << posX
-		<< ", posY: " << posY
-		<< endl;
 	bool retVal = false;
 	if(state == ALIVE)
 	{
@@ -82,18 +74,6 @@ bool Snail::makeRandomMove()
 			drawMove(deltaX, deltaY);
 			posX += deltaX;
 			posY += deltaY;
-			ofs << "posX: " << posX
-			    << ", posY: " << posY
-		    	<< ", width: " << (grass->getWidth() - 1)
-				<< ", height: " << (grass->getHeight() - 1)
-				<< endl;
-			posX %= grass->getWidth();
-			posY %= grass->getHeight();
-			ofs << "posX: " << posX
-			<< ", posY: " << posY
-			<< ", width: " << (grass->getWidth() - 1)
-			<< ", height: " << (grass->getHeight() - 1)
-			<< endl << endl;
 			eat();
 			retVal = true;
 		}

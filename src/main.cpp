@@ -35,7 +35,7 @@ int main(int argc, char** argv)
 			while(true)
 			{
 				++i;
-				if(i == 10)
+				if(i == 30)
 				{
 					map->growMap();
 					i = 0;
