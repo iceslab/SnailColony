@@ -3,42 +3,37 @@
 #include "../headers/SnailColony.h"
 
 SnailColony* colony = nullptr;
+Grass* grass = nullptr;
 
 void* keys(void* arg)
 {
 	while(true)
 	{
 		char c = getchar();
-		bool revived = false;
 		switch(c)
 		{
 			case 'q':
 				*static_cast<bool*>(arg) = false;
 				return nullptr;
 			case '+':
-				// Nie zadziala bo watek juz wyszedl z petli
-				for(unsigned i = 0; i < colony->getColonySize(); i++)
-				{
-					if(DEAD == colony->getSnail(i)->getState())
-					{
-						colony->getSnail(i)->setState(ALIVE);
-						revived = true;
-						break;
-					}
-				}
-
-				if(!revived)
-				{
-					colony->add();
-				}
-
+				colony->add();
+				break;
+			case '-':
+				colony->remove();
+				break;
+			case ' ':
+				// TODO: deszcz
+				break;
+			case '*':
+				grass->setGrowthChancePercentage(grass->getGrowthChancePercentage() + 1.0);
+				break;
+			case '/':
+				grass->setGrowthChancePercentage(grass->getGrowthChancePercentage() - 1.0);
 				break;
 			default:
 				break;
 		}
 	}
-
-	return nullptr;
 }
 
 int main(int argc, char** argv)
@@ -48,7 +43,6 @@ int main(int argc, char** argv)
 	{
 //		getchar();
 		Map* map = nullptr;
-		Grass* grass = nullptr;
 		StatusBar* statusBar = nullptr;
 
 		if(CommonUtils::initWindows(map, statusBar))
@@ -58,6 +52,9 @@ int main(int argc, char** argv)
 			colony->setGrass(grass);
 			map->setColony(colony);
 			map->setGrass(grass);
+			statusBar->setColony(colony);
+			statusBar->setGrass(grass);
+//			statusBar->start();
 //			mvprintw(1, 1, "%d, %d", map.getHeight(), map.getWidth());
 //			mvprintw(2, 1, "%d, %d", statusBar.getHeight(), statusBar.getWidth());
 //			wrefresh(stdscr);
@@ -77,13 +74,14 @@ int main(int argc, char** argv)
 			while(run)
 			{
 				++i;
-				if(i == 30)
+				if(i == 10)
 				{
 					map->growMap();
 					i = 0;
 				}
 				usleep(100000);
 				map->reprint();
+				statusBar->refreshStatus();
 			}
 //			sleep(2);
 //			getchar();

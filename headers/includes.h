@@ -44,4 +44,22 @@ enum SnailState
 	ALIVE
 };
 
+inline string snailStateToString(SnailState state)
+{
+	string stateString = "";
+	switch(state)
+	{
+		case DEAD:
+			stateString = "DEAD";
+			break;
+		case ALIVE:
+			stateString = "ALIVE";
+			break;
+		default:
+			break;
+	}
+
+	return stateString;
+}
+
 #endif /* HEADERS_INCLUDES_H_ */

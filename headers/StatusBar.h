@@ -9,6 +9,7 @@
 #define HEADERS_STATUSBAR_H_
 
 #include "../headers/includes.h"
+#include "../headers/SnailColony.h"
 
 class StatusBar
 {
@@ -17,19 +18,18 @@ public:
 	StatusBar(int height, int width, int xPos, int yPos);
 	virtual ~StatusBar();
 
-	int getHeight() const {
-		return height;
-	}
-
-	int getWidth() const {
-		return width;
-	}
+	void setColony(SnailColony* colony);
+	void setGrass(Grass* grass);
+	void start();
+	void refreshStatus();
 
 protected:
 private:
 	int height;
 	int width;
 	WINDOW* statusWindow;
+	SnailColony* colony;
+	Grass* grass;
 };
 
 

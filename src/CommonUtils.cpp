@@ -6,7 +6,7 @@
  */
 #include "../headers/CommonUtils.h"
 
-const int CommonUtils::statusBarHeight = 10;
+const int CommonUtils::statusBarHeight = 8;
 
 bool CommonUtils::initLibrary()
 {
@@ -37,11 +37,11 @@ bool CommonUtils::initWindows(Map* &map, StatusBar* &statusBar)
 	getmaxyx(stdscr, lines, columns);
 
 	width = columns - 2;
-	if(width > 0)
+	if(width > 1)
 	{
 		height = lines - 2 - statusBarHeight;
 
-		if(height > 0)
+		if(height > 1)
 		{
 			map = new Map(height, width, startX, startY);
 			refresh();

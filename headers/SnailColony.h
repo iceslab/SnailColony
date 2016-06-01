@@ -20,15 +20,19 @@ public:
     unsigned getColonySize() const;
     const Snail* getSnail(unsigned index) const;
     Snail* getSnail(unsigned index);
+    void setSnail(unsigned index, Snail* snail);
+    SnailState getSnailState(unsigned index);
+    void getSnailColorAndPosition(unsigned index, ColorPair &color, int &x, int &y);
 
     void setGrass(Grass* grass);
-private:
     static const unsigned maxColonySize;
+private:
 
-    // TODO: zamienic na liste
+
     Snail** snails;
     unsigned snailsCount;
     Grass* grass;
+    pthread_mutex_t colonyMutex;
 
 };
 

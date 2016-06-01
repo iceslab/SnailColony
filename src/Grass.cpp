@@ -6,9 +6,12 @@
 #include <sstream>
 #include "../headers/Grass.h"
 
-Grass::Grass(int height, int width, int startingTileValue) :
-    height(height), width(width), tiles(nullptr)
+Grass::Grass(int height, int width, int startingTileValue, double growthChancePercentage) :
+    height(height), width(width), tiles(nullptr), rd(), mt(rd()), dist(0.0, 100.0)
 {
+    pthread_mutex_init(&grassMutex, nullptr);
+    setGrowthChancePercentage(growthChancePercentage);
+
     if(startingTileValue > 9)
     {
         startingTileValue = 9;
@@ -51,6 +54,7 @@ Grass::~Grass()
         delete[] tiles;
         tiles = nullptr;
     }
+    pthread_mutex_destroy(&grassMutex);
 }
 
 Grass::Grass(Grass&& grass)
@@ -81,25 +85,14 @@ void Grass::growGrass()
     {
         for(unsigned column = 0; column < this->width; column++)
         {
-            tiles[row][column].grow();
+            if(dist(mt) < growthChancePercentage)
+                tiles[row][column].grow();
         }
     }
 }
 
-const Tile& Grass::getTile(int posX, int posY) const
-{
-    return tiles[posY][posX];
-}
-
 Tile& Grass::getTile(int posX, int posY)
 {
-//    ofstream ofs("tile.txt", ios::app | ios::out);
-//    ofs << "posX: " << posX
-//        << ", size: " << width - 1
-//        << endl
-//        << "posY: " << posY
-//        << ", size: " << height - 1
-//        << endl << endl;
     if(posX >= width)
     {
         stringstream ss;
@@ -127,4 +120,30 @@ int Grass::getHeight() const
 int Grass::getWidth() const
 {
     return width;
+}
+
+void Grass::setGrowthChancePercentage(double percentage)
+{
+    pthread_mutex_lock(&grassMutex);
+    if(percentage > 100.0)
+    {
+        growthChancePercentage = 100.0;
+    }
+    else if(percentage < 0.0)
+    {
+        growthChancePercentage = 0.0;
+    }
+    else
+    {
+        growthChancePercentage = percentage;
+    }
+    pthread_mutex_unlock(&grassMutex);
+}
+
+double Grass::getGrowthChancePercentage() const
+{
+    pthread_mutex_lock(&grassMutex);
+    double retVal = growthChancePercentage;
+    pthread_mutex_unlock(&grassMutex);
+    return retVal;
 }

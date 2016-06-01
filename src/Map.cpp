@@ -147,10 +147,11 @@ void Map::printColony()
 
 	for(unsigned i = 0; i < snailsNumber; i++)
 	{
-		ColorPair color = colony->getSnail(i)->getColor();
-		wattron(mapWindow, COLOR_PAIR(color));
+
+		ColorPair color = ColorPair::BLACK;
 		int x = 0, y = 0;
-		colony->getSnail(i)->getPos(x, y);
+		colony->getSnailColorAndPosition(i, color, x, y);
+		wattron(mapWindow, COLOR_PAIR(color));
 		mvwprintw(mapWindow,
 				  y + 1,
 				  x + 1,
