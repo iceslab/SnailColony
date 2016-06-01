@@ -41,7 +41,8 @@ enum ColorPair
 enum SnailState
 {
 	DEAD,
-	ALIVE
+	ALIVE,
+	HIDDEN
 };
 
 inline string snailStateToString(SnailState state)
@@ -54,6 +55,9 @@ inline string snailStateToString(SnailState state)
 			break;
 		case ALIVE:
 			stateString = "ALIVE";
+			break;
+		case HIDDEN:
+			stateString = "HIDDEN";
 			break;
 		default:
 			break;

@@ -7,9 +7,11 @@
 #include "../headers/Grass.h"
 
 Grass::Grass(int height, int width, int startingTileValue, double growthChancePercentage) :
-    height(height), width(width), tiles(nullptr), rd(), mt(rd()), dist(0.0, 100.0)
+    height(height), width(width), tiles(nullptr), rd(), mt(rd()), dist(0.0, 100.0), raining(false)
 {
     pthread_mutex_init(&grassMutex, nullptr);
+    pthread_mutex_init(&rainMutex, nullptr);
+    pthread_cond_init(&rainVariable, nullptr);
     setGrowthChancePercentage(growthChancePercentage);
 
     if(startingTileValue > 9)
@@ -54,6 +56,8 @@ Grass::~Grass()
         delete[] tiles;
         tiles = nullptr;
     }
+    pthread_cond_destroy(&rainVariable);
+    pthread_mutex_destroy(&rainMutex);
     pthread_mutex_destroy(&grassMutex);
 }
 
@@ -146,4 +150,18 @@ double Grass::getGrowthChancePercentage() const
     double retVal = growthChancePercentage;
     pthread_mutex_unlock(&grassMutex);
     return retVal;
+}
+
+bool Grass::isRaining()
+{
+    return raining;
+}
+
+void Grass::toggleRaining()
+{
+    pthread_mutex_lock(&rainMutex);
+    raining = !raining;
+    if(!raining)
+        pthread_cond_broadcast(&rainVariable);
+    pthread_mutex_unlock(&rainMutex);
 }

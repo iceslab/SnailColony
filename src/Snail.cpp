@@ -179,9 +179,19 @@ void Snail::drawMove(int& deltaX, int& deltaY)
 
 void* Snail::snailThreadFn(void* snail)
 {
+	Snail* snailPtr = static_cast<Snail*>(snail);
 	while(true)
 	{
-		if(!static_cast<Snail*>(snail)->makeRandomMove())
+		pthread_mutex_lock(&snailPtr->grass->rainMutex);
+		while(snailPtr->grass->isRaining())
+		{
+			snailPtr->setState(SnailState::HIDDEN);
+			pthread_cond_wait(&snailPtr->grass->rainVariable, &snailPtr->grass->rainMutex);
+			snailPtr->setState(SnailState::ALIVE);
+		}
+		pthread_mutex_unlock(&snailPtr->grass->rainMutex);
+
+		if(!snailPtr->makeRandomMove())
 			break;
 		usleep(100000);
 	}

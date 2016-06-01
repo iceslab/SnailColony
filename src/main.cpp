@@ -22,7 +22,7 @@ void* keys(void* arg)
 				colony->remove();
 				break;
 			case ' ':
-				// TODO: deszcz
+				grass->toggleRaining();
 				break;
 			case '*':
 				grass->setGrowthChancePercentage(grass->getGrowthChancePercentage() + 1.0);

@@ -25,12 +25,19 @@ public:
     void setGrowthChancePercentage(double percentage);
     double getGrowthChancePercentage() const;
 
+    bool isRaining();
+    void toggleRaining();
+
+    mutable pthread_mutex_t rainMutex;
+    mutable pthread_cond_t rainVariable;
 private:
     int height;
     int width;
     Tile** tiles;
     double growthChancePercentage;
     mutable pthread_mutex_t grassMutex;
+
+    bool raining;
 
     random_device rd;
     mt19937 mt;
