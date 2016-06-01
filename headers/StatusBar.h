@@ -20,8 +20,9 @@ public:
 
 	void setColony(SnailColony* colony);
 	void setGrass(Grass* grass);
-	void start();
 	void refreshStatus();
+
+	void resize(int width, int height, int xPos, int yPos);
 
 protected:
 private:
@@ -30,6 +31,7 @@ private:
 	WINDOW* statusWindow;
 	SnailColony* colony;
 	Grass* grass;
+	pthread_mutex_t statusBarMutex;
 };
 
 

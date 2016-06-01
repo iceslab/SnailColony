@@ -37,11 +37,11 @@ bool CommonUtils::initWindows(Map* &map, StatusBar* &statusBar)
 	getmaxyx(stdscr, lines, columns);
 
 	width = columns - 2;
-	if(width > 1)
+	if(width >= 3)
 	{
 		height = lines - 2 - statusBarHeight;
 
-		if(height > 1)
+		if(height >= 3)
 		{
 			map = new Map(height, width, startX, startY);
 			refresh();

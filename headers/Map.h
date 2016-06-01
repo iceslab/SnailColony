@@ -29,6 +29,7 @@ public:
 	void setGrass(Grass* grass);
 
 	void growMap();
+	void resize(int width, int height);
 	void reprint();
 
 protected:
@@ -38,6 +39,7 @@ private:
 	WINDOW* mapWindow;
 	Grass* grass;
 	SnailColony* colony;
+	pthread_mutex_t mapMutex;
 
 	void printGrass();
 	void printColony();

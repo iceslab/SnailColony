@@ -131,14 +131,14 @@ Tile& Grass::getTile(int posX, int posY)
     return tiles[posY][posX];
 }
 
-void Grass::setHeight(int height)
+void Grass::resize(int width, int height)
 {
-
-}
-
-void Grass::setWidth(int width)
-{
-
+    pthread_mutex_lock(&grassMutex);
+    eraseGrass();
+    this->width = width;
+    this->height = height;
+    createGrass();
+    pthread_mutex_unlock(&grassMutex);
 }
 
 int Grass::getHeight() const

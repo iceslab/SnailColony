@@ -12,6 +12,7 @@ Map::Map() : colony(0)
 	height = 0;
 	width = 0;
 	mapWindow = nullptr;
+	pthread_mutex_init(&mapMutex, nullptr);
 }
 
 Map::Map(int height, int width, int xPos, int yPos) : Map()
@@ -64,11 +65,14 @@ Map& Map::operator= (Map&& map)
 
 Map::~Map()
 {
+	pthread_mutex_lock(&mapMutex);
 	if(nullptr != mapWindow)
 	{
 		delwin(mapWindow);
 		mapWindow = nullptr;
 	}
+	pthread_mutex_unlock(&mapMutex);
+	pthread_mutex_destroy(&mapMutex);
 }
 
 int Map::getHeight() const
@@ -99,16 +103,32 @@ void Map::setGrass(Grass* grass)
 void Map::growMap()
 {
 	grass->growGrass();
+}
 
-//	printGrass();
-//	printColony();
+void Map::resize(int width, int height)
+{
+	pthread_mutex_lock(&mapMutex);
+	if(nullptr != mapWindow)
+	{
+		delwin(mapWindow);
+		mapWindow = nullptr;
+	}
+	this->width = width;
+	this->height = height;
+	grass->resize(width - 2, height - 2);
+	mapWindow = newwin(height, width, 1, 1);
+	wborder(mapWindow, '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0');
+	pthread_mutex_unlock(&mapMutex);
 }
 
 void Map::reprint()
 {
+	pthread_mutex_lock(&mapMutex);
 	printGrass();
 	printColony();
+	wborder(mapWindow, '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0');
 	wrefresh(mapWindow);
+	pthread_mutex_unlock(&mapMutex);
 	refresh();
 }
 

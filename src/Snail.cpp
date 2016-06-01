@@ -94,7 +94,10 @@ void Snail::setColor(ColorPair color)
 
 void Snail::eat()
 {
-	hunger -= grass->getTile(posX, posY).shrink(hunger);
+	int hungerDecrease = grass->getTile(posX, posY).shrink(hunger);
+	pthread_mutex_lock(&snailMutex);
+	hunger -= hungerDecrease;
+	pthread_mutex_unlock(&snailMutex);
 }
 
 bool Snail::makeRandomMove()
@@ -126,6 +129,7 @@ void Snail::start()
 
 unsigned Snail::increaseHunger(unsigned amount)
 {
+	pthread_mutex_lock(&snailMutex);
 	if(hunger < maxHunger)
 	{
 		if(amount > maxHunger - hunger)
@@ -142,7 +146,7 @@ unsigned Snail::increaseHunger(unsigned amount)
 	{
 		amount = 0;
 	}
-
+	pthread_mutex_unlock(&snailMutex);
 	return amount;
 }
 
@@ -167,9 +171,6 @@ void Snail::drawMove(int& deltaX, int& deltaY)
 		default:
 			break;
 	}
-
-	auto width = grass->getWidth();
-	auto height = grass->getHeight();
 
 	if(posX == 0 && deltaX < 0)
 	{
@@ -207,4 +208,5 @@ void* Snail::snailThreadFn(void* snail)
 			break;
 		usleep(100000);
 	}
+	return snail;
 }

@@ -22,8 +22,7 @@ public:
     void growGrass();
     Tile& getTile(int posX, int posY);
 
-    void setHeight(int height);
-    void setWidth(int width);
+    void resize(int width, int height);
     int getHeight() const;
     int getWidth() const;
 

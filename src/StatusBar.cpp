@@ -10,6 +10,7 @@
 
 StatusBar::StatusBar()
 {
+	pthread_mutex_init(&statusBarMutex, nullptr);
 	height = 0;
 	width = 0;
 	statusWindow = nullptr;
@@ -32,6 +33,7 @@ StatusBar::~StatusBar()
 		delwin(statusWindow);
 		statusWindow = nullptr;
 	}
+	pthread_mutex_destroy(&statusBarMutex);
 }
 
 void StatusBar::setColony(SnailColony* colony)
@@ -46,6 +48,7 @@ void StatusBar::setGrass(Grass* grass)
 
 void StatusBar::refreshStatus()
 {
+	pthread_mutex_lock(&statusBarMutex);
 	if(nullptr != statusWindow)
 	{
 		unsigned i = 0;
@@ -78,4 +81,19 @@ void StatusBar::refreshStatus()
 		wrefresh(statusWindow);
 		refresh();
 	}
+	pthread_mutex_unlock(&statusBarMutex);
+}
+
+void StatusBar::resize(int width, int height, int xPos, int yPos)
+{
+	pthread_mutex_lock(&statusBarMutex);
+	if(nullptr != statusWindow)
+	{
+		delwin(statusWindow);
+		statusWindow = nullptr;
+	}
+	statusWindow = newwin(height, width, yPos, xPos);
+	wborder(statusWindow, '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0');
+	wrefresh(statusWindow);
+	pthread_mutex_unlock(&statusBarMutex);
 }
