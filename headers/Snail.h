@@ -28,6 +28,7 @@ public:
 
 	void setState(SnailState state);
 	SnailState getState() const;
+	int getHunger() const;
 
 	ColorPair getColor() const;
 	void setColor(ColorPair color);
@@ -37,6 +38,8 @@ public:
 
 	void start();
 
+	static const int minHunger;
+	static const int maxHunger;
 protected:
 private:
 	int posX;
@@ -49,9 +52,6 @@ private:
 
 	pthread_t snailThread;
 	mutable pthread_mutex_t snailMutex;
-
-	static const int minHunger;
-	static const int maxHunger;
 
 	unsigned increaseHunger(unsigned amount = 1);
 	void drawMove(int& deltaX, int& deltaY);

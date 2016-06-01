@@ -23,6 +23,7 @@ public:
     void setSnail(unsigned index, Snail* snail);
     SnailState getSnailState(unsigned index);
     void getSnailColorAndPosition(unsigned index, ColorPair &color, int &x, int &y);
+    int getSnailHunger(unsigned index);
 
     void setGrass(Grass* grass);
     static const unsigned maxColonySize;

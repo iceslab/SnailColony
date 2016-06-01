@@ -137,6 +137,14 @@ void SnailColony::getSnailColorAndPosition(unsigned index, ColorPair &color, int
     pthread_mutex_unlock(&colonyMutex);
 }
 
+int SnailColony::getSnailHunger(unsigned index)
+{
+    pthread_mutex_lock(&colonyMutex);
+    int retVal = snails[index]->getHunger();
+    pthread_mutex_unlock(&colonyMutex);
+    return retVal;
+}
+
 Snail* SnailColony::getSnail(unsigned index)
 {
     return snails[index];

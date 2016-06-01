@@ -65,6 +65,14 @@ SnailState Snail::getState() const
 	return retVal;
 }
 
+int Snail::getHunger() const
+{
+	pthread_mutex_lock(&snailMutex);
+	int retVal = hunger;
+	pthread_mutex_unlock(&snailMutex);
+	return retVal;
+}
+
 void Snail::setGrass(Grass* grass)
 {
 	this->grass = grass;

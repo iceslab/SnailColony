@@ -61,8 +61,8 @@ void StatusBar::refreshStatus()
 		ss
 		<< " - x: "<< x
 		<<", y: "<< y
-		<<" - state: " << snailStateToString(state);
-
+		<<" - state: " << snailStateToString(state)
+		<<", hunger: " << colony->getSnailHunger(i) << "/"<< Snail::maxHunger;
 
 		wattron(statusWindow, COLOR_PAIR(color));
 		mvwprintw(statusWindow, i + 1, 2, "X");
@@ -72,7 +72,7 @@ void StatusBar::refreshStatus()
 
 	stringstream ss;
 	ss << "Growth chance : "<< grass->getGrowthChancePercentage() << "%%";
-	mvwprintw(statusWindow, 1, 40, ss.str().c_str());
+	mvwprintw(statusWindow, 1, 50, ss.str().c_str());
 
 	wrefresh(statusWindow);
 	refresh();
