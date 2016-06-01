@@ -47,8 +47,8 @@ unsigned Tile::shrink(unsigned amount)
 	{
 		if(amount > minTileValue + value)
 		{
-			value = minTileValue;
 			amount = static_cast<unsigned>(value - minTileValue);
+			value = minTileValue;
 		}
 		else
 		{

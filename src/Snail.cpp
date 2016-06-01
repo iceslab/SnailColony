@@ -10,7 +10,7 @@
 #include "../headers/Snail.h"
 
 const int Snail::minHunger = 0;
-const int Snail::maxHunger = 10;
+const int Snail::maxHunger = 100;
 
 Snail::Snail(ColorPair color, Grass* grass, int x, int y) :
 		color(color), hunger(minHunger), state(ALIVE), grass(grass)
@@ -31,6 +31,8 @@ void Snail::setPos(int x, int y)
 	pthread_mutex_lock(&snailMutex);
 	posX = x;
 	posY = y;
+	posX %= grass->getWidth();
+	posY %= grass->getHeight();
 	pthread_mutex_unlock(&snailMutex);
 }
 
@@ -39,6 +41,8 @@ void Snail::changePos(int dx, int dy)
 	pthread_mutex_lock(&snailMutex);
 	posX += dx;
 	posY += dy;
+	posX %= grass->getWidth();
+	posY %= grass->getHeight();
 	pthread_mutex_unlock(&snailMutex);
 }
 

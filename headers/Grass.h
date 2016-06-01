@@ -16,9 +16,14 @@ public:
     Grass(Grass&& grass);
     Grass& operator= (Grass&& grass);
 
+    void createGrass(int startingTileValue = -1);
+    void eraseGrass();
+
     void growGrass();
     Tile& getTile(int posX, int posY);
 
+    void setHeight(int height);
+    void setWidth(int width);
     int getHeight() const;
     int getWidth() const;
 
@@ -30,12 +35,12 @@ public:
 
     mutable pthread_mutex_t rainMutex;
     mutable pthread_cond_t rainVariable;
+    mutable pthread_mutex_t grassMutex;
 private:
     int height;
     int width;
     Tile** tiles;
     double growthChancePercentage;
-    mutable pthread_mutex_t grassMutex;
 
     bool raining;
 

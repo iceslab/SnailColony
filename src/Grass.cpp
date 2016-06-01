@@ -19,43 +19,17 @@ Grass::Grass(int height, int width, int startingTileValue, double growthChancePe
         startingTileValue = 9;
     }
 
-    tiles = new Tile*[this->height];
-//    tiles.resize(this->height);
-    for(unsigned row = 0; row < this->height; row++)
-    {
-
-//        tiles[row] = vector<Tile>(this->width);
-        tiles[row] = new Tile[this->width]();
-        for(unsigned column = 0; column < this->width; column++)
-        {
-            if(startingTileValue < 0)
-            {
-                tiles[row][column].setValue(rand() % 10);
-            }
-            else
-            {
-                tiles[row][column].setValue(startingTileValue);
-            }
-        }
-    }
+    pthread_mutex_lock(&grassMutex);
+    createGrass(startingTileValue);
+    pthread_mutex_unlock(&grassMutex);
 }
 
 Grass::~Grass()
 {
-    if(nullptr != tiles)
-    {
-        for(unsigned row = 0; row < this->height; row++)
-        {
-            if(nullptr != tiles[row])
-            {
-                delete [] tiles[row];
-                tiles[row] = nullptr;
-            }
-        }
+    pthread_mutex_lock(&grassMutex);
+    eraseGrass();
+    pthread_mutex_unlock(&grassMutex);
 
-        delete[] tiles;
-        tiles = nullptr;
-    }
     pthread_cond_destroy(&rainVariable);
     pthread_mutex_destroy(&rainMutex);
     pthread_mutex_destroy(&grassMutex);
@@ -81,6 +55,47 @@ Grass& Grass::operator= (Grass&& grass)
     grass.width = 0;
 
     return *this;
+}
+
+void Grass::createGrass(int startingTileValue)
+{
+    if(nullptr == tiles)
+    {
+        tiles = new Tile*[this->height];
+        for(unsigned row = 0; row < this->height; row++)
+        {
+            tiles[row] = new Tile[this->width]();
+            for(unsigned column = 0; column < this->width; column++)
+            {
+                if(startingTileValue < 0)
+                {
+                    tiles[row][column].setValue(rand() % 10);
+                }
+                else
+                {
+                    tiles[row][column].setValue(startingTileValue);
+                }
+            }
+        }
+    }
+}
+
+void Grass::eraseGrass()
+{
+    if(nullptr != tiles)
+    {
+        for(unsigned row = 0; row < this->height; row++)
+        {
+            if(nullptr != tiles[row])
+            {
+                delete [] tiles[row];
+                tiles[row] = nullptr;
+            }
+        }
+
+        delete[] tiles;
+        tiles = nullptr;
+    }
 }
 
 void Grass::growGrass()
@@ -114,6 +129,16 @@ Tile& Grass::getTile(int posX, int posY)
     }
 
     return tiles[posY][posX];
+}
+
+void Grass::setHeight(int height)
+{
+
+}
+
+void Grass::setWidth(int width)
+{
+
 }
 
 int Grass::getHeight() const

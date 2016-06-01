@@ -46,34 +46,36 @@ void StatusBar::setGrass(Grass* grass)
 
 void StatusBar::refreshStatus()
 {
-	unsigned i = 0;
-
-	werase(statusWindow);
-	wborder(statusWindow, '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0');
-	for(; i < colony->getColonySize(); i++)
+	if(nullptr != statusWindow)
 	{
-		int x = 0, y = 0;
-		ColorPair color = ColorPair::BLACK;
-		SnailState state = colony->getSnailState(i);
-		colony->getSnailColorAndPosition(i, color, x, y);
+		unsigned i = 0;
+		werase(statusWindow);
+		wborder(statusWindow, '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0');
+		for (; i < colony->getColonySize(); i++)
+		{
+			int x = 0, y = 0;
+			ColorPair color = ColorPair::BLACK;
+			SnailState state = colony->getSnailState(i);
+			colony->getSnailColorAndPosition(i, color, x, y);
+
+			stringstream ss;
+			ss
+			<< " - x: " << x
+			<< ", y: " << y
+			<< " - state: " << snailStateToString(state)
+			<< ", hunger: " << colony->getSnailHunger(i) << "/" << Snail::maxHunger;
+
+			wattron(statusWindow, COLOR_PAIR(color));
+			mvwprintw(statusWindow, i + 1, 2, "X");
+			wattroff(statusWindow, COLOR_PAIR(color));
+			mvwprintw(statusWindow, i + 1, 3, ss.str().c_str());
+		}
 
 		stringstream ss;
-		ss
-		<< " - x: "<< x
-		<<", y: "<< y
-		<<" - state: " << snailStateToString(state)
-		<<", hunger: " << colony->getSnailHunger(i) << "/"<< Snail::maxHunger;
+		ss << "Growth chance : " << grass->getGrowthChancePercentage() << "%%";
+		mvwprintw(statusWindow, 1, 50, ss.str().c_str());
 
-		wattron(statusWindow, COLOR_PAIR(color));
-		mvwprintw(statusWindow, i + 1, 2, "X");
-		wattroff(statusWindow, COLOR_PAIR(color));
-		mvwprintw(statusWindow, i + 1, 3, ss.str().c_str());
+		wrefresh(statusWindow);
+		refresh();
 	}
-
-	stringstream ss;
-	ss << "Growth chance : "<< grass->getGrowthChancePercentage() << "%%";
-	mvwprintw(statusWindow, 1, 50, ss.str().c_str());
-
-	wrefresh(statusWindow);
-	refresh();
 }
