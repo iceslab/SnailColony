@@ -7,7 +7,9 @@
 
 #include "../headers/Map.h"
 
-Map::Map() : colony(0)
+const double Map::dropFallChance = 3.0;
+
+Map::Map() : colony(0), rd(), mt(rd()), dist(0.0, 100.0)
 {
 	height = 0;
 	width = 0;
@@ -20,47 +22,9 @@ Map::Map(int height, int width, int xPos, int yPos) : Map()
 	this->height = height;
 	this->width = width;
 	mapWindow = newwin(height, width, yPos, xPos);
-//	grass = Grass(height - 2, width - 2);
-//	colony.setGrass(&grass);
 
 	wborder(mapWindow, '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0');
 	wrefresh(mapWindow);
-
-
-
-//	refresh();
-//	printGrass();
-//	mvprintw(1, 1, "%d, %d", this->height, this->width);
-}
-
-Map::Map(Map&& map)
-{
-	height = map.height;
-	width = map.width;
-	mapWindow = map.mapWindow;
-	grass = move(map.grass);
-	colony = move(colony);
-//	colony.setGrass(&grass);
-
-	map.height = 0;
-	map.width = 0;
-	map.mapWindow = nullptr;
-}
-
-Map& Map::operator= (Map&& map)
-{
-	height = map.height;
-	width = map.width;
-	mapWindow = map.mapWindow;
-	grass = move(map.grass);
-	colony = move(map.colony);
-//	colony.setGrass(&grass);
-
-	map.height = 0;
-	map.width = 0;
-	map.mapWindow = nullptr;
-
-	return *this;
 }
 
 Map::~Map()
@@ -126,6 +90,7 @@ void Map::reprint()
 	pthread_mutex_lock(&mapMutex);
 	printGrass();
 	printColony();
+	printRain();
 	wborder(mapWindow, '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0');
 	wrefresh(mapWindow);
 	pthread_mutex_unlock(&mapMutex);
@@ -140,10 +105,15 @@ void Map::printGrass()
 	{
 		for(int column = 0; column < grassWidth; column++ )
 		{
-			ColorPair color;
+			ColorPair color = ColorPair::BLUE;
 			try
 			{
-				char value = grass->getTile(column, row).getValueAsChar(color);
+				char value = ' ';
+				if(!(grass->isRaining() && dist(mt) < dropFallChance))
+				{
+					value = grass->getTile(column, row).getValueAsChar(color);
+				}
+
 				wattron(mapWindow, COLOR_PAIR(color));
 				mvwprintw(mapWindow, row + 1, column + 1, "%c", value);
 				wattroff(mapWindow, COLOR_PAIR(color));
@@ -182,4 +152,8 @@ void Map::printColony()
 //	refreshMap();
 //	wrefresh(mapWindow);
 //	refresh();
+}
+
+void Map::printRain()
+{
 }

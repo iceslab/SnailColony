@@ -16,8 +16,6 @@ class Map {
 public:
 	Map();
 	Map(int height, int width, int xPos, int yPos);
-	Map(Map&& map);
-	Map& operator= (Map&& map);
 	virtual ~Map();
 
 	int getHeight() const;
@@ -43,6 +41,13 @@ private:
 
 	void printGrass();
 	void printColony();
+	void printRain();
+
+	random_device rd;
+	mt19937 mt;
+	uniform_real_distribution<double> dist;
+
+	static const double dropFallChance;
 };
 
 #endif /* SRC_MAP_H_ */
